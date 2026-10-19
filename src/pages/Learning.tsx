@@ -24,8 +24,25 @@ export function LearningPage() {
         kicker="Student services"
         title="How a skill is taught, practised, and signed off."
         lede="A quiz can show that a person understood a lesson. It cannot show that they can do the work. An instructor makes that decision and records it."
-        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'How learning works' }]}
+        crumbs={[{ to: '/', label: 'Home' }, { to: '/services', label: 'Student services' }, { label: 'How learning works' }]}
       />
+
+      <section className="band band-tight">
+        <div className="wrap tool-strip" aria-label="Tools taught in Construction">
+          <figure>
+            <img src={publicUrl('media/hammer.jpg')} alt="A claw hammer." />
+            <figcaption>Hammer</figcaption>
+          </figure>
+          <figure>
+            <img src={publicUrl('media/drill.jpg')} alt="A cordless drill." />
+            <figcaption>Drill</figcaption>
+          </figure>
+          <figure>
+            <img src={publicUrl('media/hardhat.jpg')} alt="A yellow hard hat." />
+            <figcaption>Hard hat</figcaption>
+          </figure>
+        </div>
+      </section>
 
       <section className="band">
         <div className="wrap">

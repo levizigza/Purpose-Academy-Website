@@ -10,7 +10,7 @@ export function ProtectionPage() {
         kicker="Student services"
         title="Records, privacy, complaints, and safety."
         lede="How Purpose Academy keeps records, handles a complaint, and runs practical work."
-        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'Student protection' }]}
+        crumbs={[{ to: '/', label: 'Home' }, { to: '/services', label: 'Student services' }, { label: 'Student protection' }]}
       />
       <section className="band">
         <div className="wrap prose-blocks">

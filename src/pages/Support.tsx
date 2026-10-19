@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PageIntro, usePage } from '../components/Chrome'
-import { LANGUAGES } from '../site'
+import { LANGUAGES, publicUrl } from '../site'
 
 export function SupportPage() {
   usePage('Learner support — Purpose Academy')
@@ -11,8 +11,22 @@ export function SupportPage() {
         kicker="Student services"
         title="Help with language, computers, and access."
         lede="Support is there so an adult can meet the standard of the program. It does not lower that standard, and it does not treat a skilled person as a beginner."
-        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'Learner support' }]}
+        crumbs={[{ to: '/', label: 'Home' }, { to: '/services', label: 'Student services' }, { label: 'Learner support' }]}
       />
+      <section className="band band-tight split-band">
+        <div className="wrap split">
+          <figure>
+            <img
+              src={publicUrl('media/welcome.jpg')}
+              alt="A welcome clipboard and notebook used in community support work."
+            />
+          </figure>
+          <div>
+            <p className="kicker">Support at the school</p>
+            <h2>Language, computers, and access sit beside the program. They do not replace it.</h2>
+          </div>
+        </div>
+      </section>
       <section className="band">
         <div className="wrap card-grid">
           <article>

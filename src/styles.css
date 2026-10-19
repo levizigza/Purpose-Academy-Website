@@ -192,21 +192,19 @@ a:hover { color: var(--gold-deep); }
   gap: 0.15rem;
 }
 
-.site-nav > a:not(.button),
-.menu-button {
+.site-nav > a:not(.button) {
   color: var(--ink);
   text-decoration: none;
   background: none;
   border: 0;
   font: inherit;
   font-weight: 620;
-  font-size: 0.94rem;
-  padding: 0.5rem 0.48rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.38rem;
   cursor: pointer;
 }
 
-.site-nav > a[aria-current="page"],
-.menu.is-current > .menu-button { color: var(--gold-deep); }
+.site-nav > a[aria-current="page"] { color: var(--gold-deep); }
 .nav-cta { margin-left: 0.45rem; }
 
 .menu { position: relative; }
@@ -540,6 +538,25 @@ a:hover { color: var(--gold-deep); }
 .bridge-steps .gloss { color: rgba(246, 241, 231, 0.68); max-width: 16rem; }
 .bridge-steps li:first-child .gloss { color: #f3c431; }
 .bridge-note { margin: 1.3rem 0 0; max-width: 50rem; color: rgba(246, 241, 231, 0.75); }
+
+.tool-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+.tool-strip figure { margin: 0; }
+.tool-strip img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.tool-strip figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
 
 .bridge-photo {
   margin: 0 0 0.85rem;
@@ -931,6 +948,7 @@ a:hover { color: var(--gold-deep); }
   .footer-grid,
   .program-row,
   .team,
+  .tool-strip,
   .measure-list article {
     grid-template-columns: 1fr;
   }

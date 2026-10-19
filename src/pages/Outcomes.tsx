@@ -17,7 +17,7 @@ export function OutcomesPage() {
         kicker="Student services"
         title="How the school reports results."
         lede="Five measures. When a figure is published, the note beside it names who was counted, the period, and the method."
-        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'Outcomes' }]}
+        crumbs={[{ to: '/', label: 'Home' }, { to: '/services', label: 'Student services' }, { label: 'Outcomes' }]}
       />
       <section className="band">
         <div className="wrap measure-list">

@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type FocusEvent, type ReactNode } from 'react'
+import { useEffect, useId, useState, type ReactNode } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { BRAND, PATHWAYS, publicUrl } from '../site'
 import { SiteCrew } from './SiteCrew'
@@ -23,69 +23,24 @@ export function Logo() {
   )
 }
 
-function Menu({
-  label,
-  open,
-  setOpen,
-  current = false,
-  children,
-}: {
-  label: string
-  open: boolean
-  setOpen: (value: boolean) => void
-  current?: boolean
-  children: ReactNode
-}) {
-  const pointer = useRef(false)
-
-  function onBlur(event: FocusEvent<HTMLDivElement>) {
-    pointer.current = false
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setOpen(false)
-  }
-
-  return (
-    <div
-      className={['menu', open && 'is-open', current && 'is-current'].filter(Boolean).join(' ')}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      onMouseDown={() => {
-        pointer.current = true
-      }}
-      onFocus={() => {
-        if (!pointer.current) setOpen(true)
-      }}
-      onBlur={onBlur}
-    >
-      <button className="menu-button" type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-        {label}
-      </button>
-      <div className="menu-panel" hidden={!open}>
-        {children}
-      </div>
-    </div>
-  )
-}
-
-const SERVICES = [
-  { to: '/learning', label: 'How learning works', note: 'Twenty steps, six stages' },
-  { to: '/support', label: 'Learner support', note: 'Language, computers, access' },
-  { to: '/outcomes', label: 'Outcomes', note: 'How results are reported' },
-  { to: '/protection', label: 'Student protection', note: 'Records, privacy, complaints' },
+const NAV: { to: string; label: string; end?: boolean }[] = [
+  { to: '/', label: 'Home', end: true },
+  { to: '/programs', label: 'Programs' },
+  { to: '/admissions', label: 'Admissions' },
+  { to: '/services', label: 'Student services' },
+  { to: '/employers', label: 'Employers' },
+  { to: '/about', label: 'About' },
+  { to: '/give', label: 'Give' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export function Shell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
-  const [programsOpen, setProgramsOpen] = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
   const location = useLocation()
-  const onServices = SERVICES.some((item) => location.pathname === item.to)
-  const onPrograms = location.pathname.startsWith('/programs')
   const menuId = useId()
 
   useEffect(() => {
     setOpen(false)
-    setProgramsOpen(false)
-    setServicesOpen(false)
   }, [location.pathname])
 
   useEffect(() => {
@@ -112,31 +67,11 @@ export function Shell({ children }: { children: ReactNode }) {
             <span className="nav-toggle-bars" aria-hidden="true" />
           </button>
           <nav id={menuId} className={open ? 'site-nav is-open' : 'site-nav'} aria-label="Primary">
-            <NavLink to="/" end>Home</NavLink>
-            <Menu label="Programs" open={programsOpen || open} setOpen={setProgramsOpen} current={onPrograms}>
-              <Link className="menu-lead" to="/programs">
-                <strong>All programs</strong>
-                <span>Construction, Logistics, and Community Support.</span>
-              </Link>
-              {PATHWAYS.map((item) => (
-                <Link key={item.slug} to={`/programs/${item.slug}`}>
-                  <strong>{item.name}</strong>
-                  <span>{item.status}</span>
-                </Link>
-              ))}
-            </Menu>
-            <NavLink to="/admissions">Admissions</NavLink>
-            <Menu label="Student services" open={servicesOpen || open} setOpen={setServicesOpen} current={onServices}>
-              {SERVICES.map((item) => (
-                <Link key={item.to} to={item.to}>
-                  <strong>{item.label}</strong>
-                  <span>{item.note}</span>
-                </Link>
-              ))}
-            </Menu>
-            <NavLink to="/employers">Employers</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            {NAV.map((item) => (
+              <NavLink key={item.to} to={item.to} end={item.end}>
+                {item.label}
+              </NavLink>
+            ))}
             <Link className="button button-gold nav-cta" to="/contact?as=learner">
               Apply
             </Link>
@@ -157,21 +92,23 @@ export function Shell({ children }: { children: ReactNode }) {
           <div>
             <h2>Study</h2>
             <ul>
-              <li><Link to="/programs/construction">Construction</Link></li>
-              <li><Link to="/programs/logistics">Logistics</Link></li>
-              <li><Link to="/programs/community-support">Community Support</Link></li>
-              <li><Link to="/learning">How learning works</Link></li>
+              {PATHWAYS.map((item) => (
+                <li key={item.slug}>
+                  <Link to={`/programs/${item.slug}`}>{item.name}</Link>
+                </li>
+              ))}
               <li><Link to="/admissions">Admissions</Link></li>
+              <li><Link to="/learning">How learning works</Link></li>
             </ul>
           </div>
           <div>
             <h2>The academy</h2>
             <ul>
-              <li><Link to="/support">Learner support</Link></li>
+              <li><Link to="/services">Student services</Link></li>
               <li><Link to="/employers">Employers</Link></li>
-              <li><Link to="/outcomes">Outcomes</Link></li>
               <li><Link to="/about">About</Link></li>
-              <li><Link to="/protection">Student protection</Link></li>
+              <li><Link to="/give">Give</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
               <li><Link to="/privacy">Privacy</Link></li>
             </ul>
           </div>
@@ -219,7 +156,7 @@ export function Crumbs({ items }: { items: { to?: string; label: string }[] }) {
         {items.map((item, index) => {
           const last = index === items.length - 1
           return (
-            <li key={item.label}>
+            <li key={`${item.label}-${index}`}>
               {item.to && !last ? <Link to={item.to}>{item.label}</Link> : <span aria-current={last ? 'page' : undefined}>{item.label}</span>}
             </li>
           )

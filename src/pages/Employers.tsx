@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PageIntro, usePage } from '../components/Chrome'
+import { publicUrl } from '../site'
 
 const ROLES = [
   { title: 'Name the tasks', text: 'Tell us what an entry-level person on your site has to do in the first months.' },
@@ -19,6 +20,24 @@ export function EmployersPage() {
         lede="Name the tasks a new worker has to do. Read a Skills Passport before the interview. Offer a site visit, an interview, or a supervised placement."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'Employers' }]}
       />
+      <section className="band split-band">
+        <div className="wrap split">
+          <figure>
+            <img
+              src={publicUrl('media/logistics-floor.jpg')}
+              alt="A warehouse floor with racks and inventory ready for supervised practice."
+            />
+          </figure>
+          <div>
+            <p className="kicker">Why employers write</p>
+            <h2>Tell us what an entry-level worker must do in the first months.</h2>
+            <p>
+              The curriculum and the Skills Passport stay useful when Calgary employers name the real tasks,
+              then read the record before they interview.
+            </p>
+          </div>
+        </div>
+      </section>
       <section className="band">
         <div className="wrap role-grid">
           {ROLES.map((role, index) => (
