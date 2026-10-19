@@ -67,7 +67,7 @@ export function ProgramPage() {
       <section className="band">
         <div className="wrap program-layout">
           <div>
-            <figure className="program-photo">
+            <figure className={`program-photo tone-${program.tone}`}>
               <img src={program.image} alt={program.imageAlt} />
             </figure>
             <h2>Who it is for</h2>

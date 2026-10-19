@@ -390,7 +390,17 @@ a:hover { color: var(--gold-deep); }
   border: 1px solid var(--line);
 }
 
-.pathway-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.pathway-card,
+.program-row,
+.program-photo {
+  border-top: 3px solid var(--line);
+}
+.tone-construction { border-top-color: var(--construction); }
+.tone-logistics { border-top-color: var(--logistics); }
+.tone-community { border-top-color: var(--community); }
+
+.pathway-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center 42%; }
+.tone-community img { object-position: center 28%; }
 .pathway-card div,
 .card-grid article,
 .role-grid article { padding: 1.15rem 1.15rem 1.3rem; }

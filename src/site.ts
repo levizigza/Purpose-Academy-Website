@@ -117,7 +117,7 @@ export const PATHWAYS: Pathway[] = [
     phase: 'After Construction',
     tone: 'community',
     image: publicUrl('media/community.jpg'),
-    imageAlt: 'A woman seated in a bright office, looking toward the camera.',
+    imageAlt: 'A support worker sits at a table with two older women, knitting with them in a care setting.',
     summary:
       'A future pathway for client communication, documentation, boundaries, and front-line community work.',
     promise:
