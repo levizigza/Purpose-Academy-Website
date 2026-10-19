@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState, type FocusEvent, type ReactNode } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { BRAND, PATHWAYS, publicUrl } from '../site'
+import { SiteCrew } from './SiteCrew'
 
 export function usePage(title: string) {
   const { pathname } = useLocation()
@@ -68,7 +69,7 @@ function Menu({
 const SERVICES = [
   { to: '/learning', label: 'How learning works', note: 'Twenty steps, six stages' },
   { to: '/support', label: 'Learner support', note: 'Language, computers, access' },
-  { to: '/outcomes', label: 'Outcomes', note: 'What will be reported' },
+  { to: '/outcomes', label: 'Outcomes', note: 'How results are reported' },
   { to: '/protection', label: 'Student protection', note: 'Records, privacy, complaints' },
 ]
 
@@ -115,7 +116,7 @@ export function Shell({ children }: { children: ReactNode }) {
             <Menu label="Programs" open={programsOpen || open} setOpen={setProgramsOpen} current={onPrograms}>
               <Link className="menu-lead" to="/programs">
                 <strong>All programs</strong>
-                <span>Construction is the program being built.</span>
+                <span>Construction, Logistics, and Community Support.</span>
               </Link>
               {PATHWAYS.map((item) => (
                 <Link key={item.slug} to={`/programs/${item.slug}`}>
@@ -136,20 +137,21 @@ export function Shell({ children }: { children: ReactNode }) {
             <NavLink to="/employers">Employers</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            <Link className="button button-gold nav-cta" to="/contact">
-              Request information
+            <Link className="button button-gold nav-cta" to="/contact?as=learner">
+              Apply
             </Link>
           </nav>
         </div>
       </header>
       <main id="main">{children}</main>
       <footer className="site-footer">
+        <SiteCrew />
         <div className="wrap footer-grid">
           <div>
             <Logo />
             <p className="footer-line">{BRAND.line}</p>
             <p>
-              A Calgary school for adults entering the workforce. Construction is the first program. Enrolment is not open.
+              A Calgary trades school. Construction, Logistics, and Community Support, taught from the words of the job to a record an employer can read.
             </p>
           </div>
           <div>
@@ -178,7 +180,7 @@ export function Shell({ children }: { children: ReactNode }) {
             <p>
               {BRAND.place}
               <br />
-              Campus address to be confirmed
+              Calgary campus
             </p>
             <p>
               <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
@@ -192,11 +194,6 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
         <div className="wrap footer-note">
           <p>
-            Purpose Academy is a workforce school under development in Calgary. These pages describe the programs
-            being built. They are not an offer of enrolment, a licensed program, Alberta Student Aid, a regulated
-            trade certificate, or a job. Tuition, dates, and credential wording will be published when they are confirmed.
-          </p>
-          <p>
             Purpose Academy is based in Calgary, on the traditional territories of the Niitsitapi (Blackfoot
             Confederacy), including the Siksika, Piikani, and Kainai; the Tsuut’ina; and the Îyârhe Nakoda Nations,
             including the Bearspaw, Chiniki, and Goodstoney. This land is also home to the Métis Nation of Alberta.
@@ -205,7 +202,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
         <div className="wrap footer-base">
           <p>© {new Date().getFullYear()} Purpose Academy</p>
-          <p>Photographs are from Unsplash, the same royalty-free set used on the learning platform. They are not pictures of Purpose Academy cohorts.</p>
+          <p>Photographs are from Unsplash, the same royalty-free set used on the learning platform. They show the work. They are not pictures of our students.</p>
         </div>
       </footer>
     </>

@@ -122,9 +122,9 @@ export function LearningPage() {
 
       <section className="close">
         <div className="wrap close-inner">
-          <h2>The next step is a request for information, not an application.</h2>
+          <h2>Apply, then start at the baseline.</h2>
           <Link className="button button-gold" to="/admissions">
-            How to join
+            Admissions
           </Link>
         </div>
       </section>

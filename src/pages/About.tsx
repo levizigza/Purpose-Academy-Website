@@ -10,14 +10,14 @@ export function AboutPage() {
       <PageIntro
         kicker="About"
         title="A Calgary school for adults entering the workforce."
-        lede="Purpose Academy is being built for people who are ready to work and are held back by workplace English, safety knowledge, computer skill, or the lack of a local record. Construction is the first program."
+        lede="Purpose Academy teaches adults the workplace English, safety, computer skill, and trade foundations they need for entry-level work in Alberta, and gives them a record an employer can read."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'About' }]}
       />
       <section className="band split-band">
         <div className="wrap split">
           <figure>
             <img src={publicUrl('media/calgary.jpg')} alt="The Calgary skyline and the Calgary Tower, seen across the Bow River from a bridge." />
-            <figcaption>Calgary. A street address will be published when a facility is confirmed.</figcaption>
+            <figcaption>Calgary, Alberta.</figcaption>
           </figure>
           <div>
             <p className="kicker">Mission</p>
@@ -40,7 +40,7 @@ export function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Values</p>
-            <h2>The rules the school is being built to follow.</h2>
+            <h2>How the school is run.</h2>
           </div>
           <div className="card-grid">
             {VALUES.map((value) => (
@@ -56,10 +56,9 @@ export function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">People</p>
-            <h2>The people building the school.</h2>
+            <h2>The people of the school.</h2>
             <p>
-              Roles, portraits, and biographies will be published as they are confirmed. Titles are not listed
-              here until they are.
+              The people responsible for Purpose Academy in Calgary.
             </p>
           </div>
           <ul className="team">
@@ -72,7 +71,7 @@ export function AboutPage() {
             ))}
           </ul>
           <p className="section-link">
-            <Link to="/contact?as=instructor">Instructors: request information</Link>
+            <Link to="/contact?as=instructor">Instructors: write to the school</Link>
           </p>
         </div>
       </section>

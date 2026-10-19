@@ -4,8 +4,8 @@ import { PageIntro, usePage } from '../components/Chrome'
 const ROLES = [
   { title: 'Name the tasks', text: 'Tell us what an entry-level person on your site has to do in the first months.' },
   { title: 'Review the curriculum', text: 'Read the competencies and say what is missing, what is unnecessary, and what a Skills Passport would need to show.' },
-  { title: 'Offer a supervised look', text: 'A site visit, an interview, or a placement, under a written agreement, once the program is ready to place someone.' },
-  { title: 'Record what you saw', text: 'After a placement, name the task and the result. General praise does not tell the next cohort what to teach.' },
+  { title: 'Offer a supervised look', text: 'A site visit, an interview, or a placement, under a written agreement with the school.' },
+  { title: 'Record what you saw', text: 'After a placement, name the task and the result. That note tells the next class what to teach.' },
 ]
 
 export function EmployersPage() {
@@ -16,7 +16,7 @@ export function EmployersPage() {
       <PageIntro
         kicker="Employers"
         title="For employers who hire entry-level workers."
-        lede="We are asking Calgary employers to name the tasks a new worker must do, and to say what a Skills Passport would need to show. Employer names and placement rates are not published here. We do not have them."
+        lede="Name the tasks a new worker has to do. Read a Skills Passport before the interview. Offer a site visit, an interview, or a supervised placement."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'Employers' }]}
       />
       <section className="band">
@@ -33,22 +33,22 @@ export function EmployersPage() {
       <section className="band band-stone">
         <div className="wrap split">
           <div>
-            <p className="kicker">What you would be able to read</p>
-            <h2>A Skills Passport names the skill, the date, and the person who verified it.</h2>
+            <p className="kicker">What you can read</p>
+            <h2>A Skills Passport names the skill, the date, and the instructor who verified it.</h2>
             <p>
-              The passport is meant to show a competency, its status, when it was verified, and the role of the
-              assessor. It must say when a credential came from someone else. It must not imply that an internal
-              record is a Red Seal, or that completion alone means the person can run the equipment.
+              Each line shows the competency, whether it is Learned, Practised, or Competent, the date, and the
+              instructor. A credential from another organization is named as theirs. Completion and competence
+              are separate lines.
             </p>
-            <p>Sharing it is the learner’s choice. It is not a public profile.</p>
+            <p>The learner decides when to share it.</p>
           </div>
           <div>
             <p className="kicker">Other partners</p>
-            <h2>Employers are one of the organizations this school needs.</h2>
+            <h2>Who the school works with.</h2>
             <ul className="plain-list">
               <li>Industry associations and unions, for standards and introductions.</li>
-              <li>Recognized safety providers, when an external certificate is actually required.</li>
-              <li>Settlement and community organizations, for referrals with a clear boundary.</li>
+              <li>Recognized safety providers, when the work requires their certificate.</li>
+              <li>Settlement and community organizations, for referrals into the programs.</li>
             </ul>
             <Link className="button button-navy" to="/contact?as=employer">
               Contact us as an employer

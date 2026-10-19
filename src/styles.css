@@ -779,7 +779,31 @@ a:hover { color: var(--gold-deep); }
   color: var(--ink);
 }
 
-.site-footer { background: var(--navy-deep); color: rgba(246, 241, 231, 0.78); padding: 3.2rem 0 1.2rem; }
+.site-footer { background: var(--navy-deep); color: rgba(246, 241, 231, 0.78); padding: 0 0 1.2rem; }
+.crew-band { background: #041526; overflow: hidden; line-height: 0; border-bottom: 1px solid rgba(232, 163, 23, 0.28); }
+.crew-scene { display: block; width: 100%; height: auto; }
+.crew-sun { fill: #e8a317; }
+.crew-load { animation: crew-hoist 4.8s ease-in-out infinite; }
+.crew-walk { animation: crew-walk 8s ease-in-out infinite alternate; }
+.crew-arm { transform-box: fill-box; transform-origin: 0% 40%; animation: crew-swing 1.05s ease-in-out infinite; }
+.crew-pass { animation: crew-pass 2.6s ease-in-out infinite; }
+@keyframes crew-hoist {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(18px); }
+}
+@keyframes crew-walk {
+  from { transform: translateX(430px); }
+  to { transform: translateX(560px); }
+}
+@keyframes crew-swing {
+  0%, 100% { transform: rotate(-34deg); }
+  46% { transform: rotate(10deg); }
+}
+@keyframes crew-pass {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+.footer-grid { padding-top: 2.4rem; }
 .site-footer a { color: #f6f1e7; }
 .site-footer .logo { margin-bottom: 0.85rem; }
 .site-footer .logo-name { color: #f6f1e7; }
@@ -878,4 +902,6 @@ a:hover { color: var(--gold-deep); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .button { transition: none; }
+  .crew-load, .crew-walk, .crew-arm, .crew-pass { animation: none; }
+  .crew-walk { transform: translateX(490px); }
 }

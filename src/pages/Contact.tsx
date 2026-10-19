@@ -14,7 +14,7 @@ const ROLES = [
 type Errors = Partial<Record<'first' | 'last' | 'email' | 'message' | 'consent', string>>
 
 export function ContactPage() {
-  usePage('Request information — Purpose Academy')
+  usePage('Apply — Purpose Academy')
   const [params] = useSearchParams()
   const initialRole = ROLES.some((role) => role.id === params.get('as')) ? params.get('as') ?? 'learner' : 'learner'
   const initialPathway = PATHWAYS.some((item) => item.slug === params.get('pathway'))
@@ -65,8 +65,8 @@ export function ContactPage() {
     <>
       <PageIntro
         kicker="Contact"
-        title="Request information."
-        lede="Write if you are a prospective learner, an employer, a referring organization, or an instructor. The form opens an email. It is not an application, and it does not hold a seat."
+        title="Apply, or write to the school."
+        lede="Learners, employers, referring organizations, and instructors. Admissions reads the message and replies by email with the next step."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'Contact' }]}
       />
       <section className="band">
@@ -74,9 +74,9 @@ export function ContactPage() {
           <div>
             <h2>What happens next</h2>
             <ol className="plain-list numbered">
-              <li>Your email app opens with the message ready.</li>
-              <li>You send it. If the app does not open, copy the note below and email {BRAND.email}.</li>
-              <li>We reply with the status of the program. If no cohort is scheduled, the reply will say so.</li>
+              <li>Your email opens with the message ready to send to admissions.</li>
+              <li>Send it. If the email app does not open, copy the note and send it to {BRAND.email}.</li>
+              <li>Admissions replies with the next intake, tuition, and where class meets, or with the answer to an employer or partner question.</li>
             </ol>
             <p>
               Place: {BRAND.place}
@@ -137,17 +137,17 @@ export function ContactPage() {
                 </label>
               </div>
               <label>
-                What do you want to know?
+                Your message
                 <textarea value={message} onChange={(event) => setMessage(event.target.value)} rows={5} aria-invalid={Boolean(errors.message)} />
                 {errors.message ? <span className="field-error">{errors.message}</span> : null}
               </label>
               <label className="check">
                 <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
-                <span>I understand this opens an email, and that program dates and tuition are not confirmed.</span>
+                <span>Admissions may reply to me by email.</span>
               </label>
               {errors.consent ? <span className="field-error">{errors.consent}</span> : null}
               <button className="button button-gold" type="submit">
-                Prepare email
+                Send to admissions
               </button>
             </form>
           )}

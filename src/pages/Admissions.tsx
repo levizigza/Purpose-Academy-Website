@@ -3,11 +3,11 @@ import { PageIntro, usePage } from '../components/Chrome'
 import { FAQS, REQUIREMENTS } from '../site'
 
 const STEPS = [
-  { n: '01', title: 'Request information', text: 'Say whether you are a prospective learner, an employer, a referring organization, or a future instructor, and which program you mean.' },
-  { n: '02', title: 'A conversation about fit', text: 'We ask about the work you want, the experience you have, and whether Construction is the right program.' },
-  { n: '03', title: 'Baseline, when a cohort exists', text: 'Language, numeracy, computer skill, safety awareness, and prior experience. The result sets a starting point. It is not a label.' },
-  { n: '04', title: 'Program confirmation', text: 'Construction is the only program being prepared for a first cohort. Logistics and Community Support cannot be selected.' },
-  { n: '05', title: 'A date, when one exists', text: 'A start date, tuition, and a campus address will be published when they are confirmed.' },
+  { n: '01', title: 'Apply', text: 'Name the program, the work you want, and the experience you already have. Admissions reads every application.' },
+  { n: '02', title: 'A conversation', text: 'We talk about the program, your starting point, and the support language you want beside English.' },
+  { n: '03', title: 'Baseline', text: 'Language, numeracy, computer skill, safety awareness, and prior experience. The result sets where you begin.' },
+  { n: '04', title: 'Program', text: 'Construction, Logistics, or Community Support. Admissions confirms the program and the intake.' },
+  { n: '05', title: 'Intake', text: 'You receive the start date, tuition, and the Calgary location for your class.' },
 ]
 
 export function AdmissionsPage() {
@@ -17,12 +17,12 @@ export function AdmissionsPage() {
     <>
       <PageIntro
         kicker="Admissions"
-        title="How to enquire about Construction."
-        lede="No cohort is being enrolled. This is the admissions path the school will use when a start date exists, and the requirements that can be stated today."
+        title="Apply to Purpose Academy."
+        lede="Choose a program, tell us the work you want, and admissions replies with the next intake, tuition, and where class meets in Calgary."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'Admissions' }]}
       >
         <Link className="button button-gold" to="/contact?as=learner&pathway=construction">
-          Request information
+          Apply
         </Link>
       </PageIntro>
 
@@ -44,11 +44,10 @@ export function AdmissionsPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Admission requirements</p>
-            <h2>Requirements that are set, and requirements that are not.</h2>
+            <h2>Who the programs are for.</h2>
             <p>
-              A college program normally publishes a schooling rule, an English benchmark, and a mature-learner
-              path. Those rules will be published here before enrolment opens. They are not stated as numbers
-              yet, because they have not been set.
+              Adults preparing for entry-level work in Alberta. Experience helps. It is not the price of admission.
+              Classes and assessments are in English, with a support language while that English is forming.
             </p>
           </div>
           <dl className="fact-list">
@@ -66,22 +65,22 @@ export function AdmissionsPage() {
         <div className="wrap split">
           <div>
             <p className="kicker">What helps</p>
-            <h2>What to have ready for the first conversation.</h2>
+            <h2>What to have ready.</h2>
             <ul className="plain-list">
-              <li>Interest in construction work in Alberta.</li>
-              <li>Willingness to learn safety and workplace English.</li>
-              <li>A way for us to reach you by email.</li>
-              <li>Any prior experience, named honestly, including experience from another country.</li>
+              <li>The program you want: Construction, Logistics, or Community Support.</li>
+              <li>A short account of the work you have done, including work from another country.</li>
+              <li>An email address admissions can reply to.</li>
+              <li>The support language you want beside English, if you want one.</li>
             </ul>
           </div>
           <div>
-            <p className="kicker">What is not required</p>
-            <h2>What is not required in order to write to us.</h2>
+            <p className="kicker">Brought into the program</p>
+            <h2>What the school teaches you.</h2>
             <ul className="plain-list">
-              <li>You do not need to already speak site English.</li>
-              <li>You do not need to already own tools.</li>
-              <li>You do not need Alberta Student Aid. It is not available here.</li>
-              <li>You should not expect a job offer as a condition of applying.</li>
+              <li>The English the job uses, starting from a picture and a word.</li>
+              <li>Safety, before practical work begins.</li>
+              <li>The tools of the program. You do not need to own them to apply.</li>
+              <li>A Skills Passport an instructor signs, and help preparing for employment.</li>
             </ul>
           </div>
         </div>

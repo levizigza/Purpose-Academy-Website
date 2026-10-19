@@ -17,28 +17,26 @@ export function HomePage() {
               <em>to<br />employment.</em>
             </h1>
             <p className="lede lede-light">
-              Purpose Academy prepares adults for entry-level work in Alberta. The first program is Construction.
-              It covers the English a job site uses, the safety required before practical work, and the tasks an
-              instructor can watch and record. Enrolment is not open.
+              Purpose Academy is a Calgary trades school for adults entering the workforce. Students learn the
+              English a job uses, the safety that comes first, and the tasks an instructor watches and signs.
             </p>
             <div className="hero-actions">
               <Link className="button button-gold" to="/programs/construction">
                 View Construction
               </Link>
-              <Link className="button button-ghost" to="/contact">
-                Request information
+              <Link className="button button-ghost" to="/contact?as=learner">
+                Apply
               </Link>
             </div>
             <p className="hero-fine">
-              Competent means an instructor has seen the work. The learning platform does not assign that status,
-              and this website does not promise a job.
+              Competent is signed by an instructor. The learning platform keeps the record.
             </p>
           </div>
           <figure className="hero-figure">
             <img src={publicUrl('media/site.jpg')} alt="Two workers in orange safety gear on a concrete deck among rebar and a cut-off saw." />
             <figcaption>
               <span>Supervised practice</span>
-              An instructor watches the skill. A completed video does not count as proof.
+              An instructor watches the skill and signs the record.
             </figcaption>
           </figure>
         </div>
@@ -46,21 +44,20 @@ export function HomePage() {
 
       <section className="measure" aria-label="What the school is organized around">
         <div className="wrap measure-grid">
-          <p><strong>Construction</strong> first program</p>
+          <p><strong>Three programs</strong> one standard</p>
           <p><strong>Six stages</strong> from entry to work</p>
           <p><strong>Three states</strong> learned, practised, competent</p>
-          <p><strong>{LANGUAGES.length} languages</strong> beside English, for a time</p>
+          <p><strong>{LANGUAGES.length} languages</strong> beside English</p>
         </div>
       </section>
 
       <section className="band band-tight">
         <div className="wrap">
           <div className="section-head">
-            <p className="kicker">Before you enquire</p>
-            <h2>The facts, in one place.</h2>
+            <p className="kicker">The school</p>
+            <h2>Calgary. Three programs. One record.</h2>
             <p>
-              Place, status, language, assessment, cost, and student aid. Where a decision has not been made,
-              the line says it has not been made.
+              Place, programs, language, assessment, credential, and how to apply.
             </p>
           </div>
           <dl className="fact-list">
@@ -78,10 +75,9 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Programs</p>
-            <h2>Three programs. Only Construction can be discussed for a first cohort.</h2>
+            <h2>Construction, Logistics, and Community Support.</h2>
             <p>
-              Logistics and Community Support are published because they are part of the plan. Neither is open
-              for enrolment.
+              Each program teaches the language of the job, the safety the job requires, and a record an instructor signs.
             </p>
           </div>
           <div className="pathway-grid">
@@ -150,8 +146,7 @@ export function HomePage() {
             <p className="kicker">The student journey</p>
             <h2>From registration to the job search.</h2>
             <p>
-              The program is twenty steps, grouped into six stages. Employment preparation is the last stage.
-              Finishing a lesson is not the same as being ready for a site.
+              Twenty steps, in six stages. The last stage is employment preparation and follow-up after students leave.
             </p>
           </div>
           <ol className="stage-row">
@@ -193,8 +188,8 @@ export function HomePage() {
             <img src={publicUrl('media/plans.jpg')} alt="A crew in hard hats and high-visibility vests sets steel mesh into a foundation." />
           </figure>
           <div>
-            <p className="kicker">Why one program first</p>
-            <h2>Language, safety, and a record have to be taught together.</h2>
+            <p className="kicker">How the school teaches</p>
+            <h2>Language, safety, and a record are taught together.</h2>
             <p>
               Some people know the trade and do not yet know the English name of the tool. Some speak English
               and have not learned Canadian site safety. Some can pass a quiz and have never been watched doing
@@ -218,7 +213,7 @@ export function HomePage() {
             <p>
               BuildForce Canada projects that Alberta construction will need to add about 48,800 workers by 2035,
               driven mainly by roughly 43,700 retirements, with a possible shortfall of as many as 5,300. That is
-              context for why a construction pathway matters. It is not a promise that a graduate will be hired.
+              the labour market these programs are built for.
             </p>
             <a
               className="text-link"
@@ -231,7 +226,7 @@ export function HomePage() {
           </div>
           <aside>
             <p className="context-figure">48,800</p>
-            <p>workers Alberta construction is projected to need by 2035. A sector figure. Not an outcome of this academy.</p>
+            <p>workers Alberta construction is projected to need by 2035, according to BuildForce Canada.</p>
           </aside>
         </div>
       </section>
@@ -248,7 +243,7 @@ export function HomePage() {
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
                 <Link className="text-link" to={`/contact?as=${item.as}`}>
-                  {item.as === 'learner' ? 'Request learner information' : item.as === 'employer' ? 'Contact us as an employer' : 'Contact us as a referring organization'}
+                  {item.as === 'learner' ? 'Apply' : item.as === 'employer' ? 'Talk with us' : 'Refer a learner'}
                 </Link>
               </article>
             ))}
@@ -260,11 +255,11 @@ export function HomePage() {
         <div className="wrap close-inner">
           <div>
             <p className="kicker kicker-light">Contact</p>
-            <h2>Ask what is ready. We will answer with the status of Construction.</h2>
+            <h2>Apply for the next intake.</h2>
           </div>
           <div className="close-actions">
             <Link className="button button-gold" to="/contact?as=learner&pathway=construction">
-              Request information
+              Apply
             </Link>
             <Link className="button button-ghost" to="/contact?as=employer">
               For employers

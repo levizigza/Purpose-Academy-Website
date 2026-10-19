@@ -10,7 +10,7 @@ export function ProgramsPage() {
       <PageIntro
         kicker="Programs"
         title="Programs."
-        lede="Construction is the program under development. Logistics and Community Support are described so the plan of the school is public. They are not offered."
+        lede="Three foundations programs. Construction, Logistics, and Community Support. Each one ends with a Skills Passport an instructor has signed."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'Programs' }]}
       />
       <section className="band">
@@ -98,14 +98,10 @@ export function ProgramPage() {
               </div>
               <div>
                 <dt>Language</dt>
-                <dd>English, with temporary support in six languages</dd>
+                <dd>English, with support in six languages</dd>
               </div>
               <div>
-                <dt>Enrolment</dt>
-                <dd>{program.slug === 'construction' ? 'Not open. Information only.' : 'Not offered.'}</dd>
-              </div>
-              <div>
-                <dt>Status</dt>
+                <dt>Level</dt>
                 <dd>{program.phase}</dd>
               </div>
               <div>
@@ -113,24 +109,24 @@ export function ProgramPage() {
                 <dd>Learned, Practised, Competent</dd>
               </div>
               <div>
-                <dt>Record</dt>
-                <dd>Skills Passport, not a Red Seal</dd>
+                <dt>Credential</dt>
+                <dd>Skills Passport</dd>
               </div>
               <div>
                 <dt>Tuition</dt>
-                <dd>Published when confirmed</dd>
+                <dd>Confirmed at admission</dd>
               </div>
               <div>
-                <dt>Student Aid</dt>
-                <dd>Not designated</dd>
+                <dt>Apply</dt>
+                <dd>Admissions replies with the next intake</dd>
               </div>
             </dl>
             <Link className="button button-gold" to={`/contact?as=learner&pathway=${program.slug}`}>
-              Ask about {program.name}
+              Apply to {program.name}
             </Link>
-            <h2 className="glance-next">This program is not</h2>
+            <h2 className="glance-next">The credential</h2>
             <ul>
-              {program.notThis.map((item) => (
+              {program.credential.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>

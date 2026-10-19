@@ -9,29 +9,27 @@ export function PrivacyPage() {
       <PageIntro
         kicker="Privacy"
         title="What this website does with your information."
-        lede="This is the public website. It is separate from the learning platform, which will hold student records when a cohort exists."
+        lede="This is the public website. Student records live on the learning platform, which has its own sign-in."
         crumbs={[{ to: '/', label: 'Home' }, { label: 'Privacy' }]}
       />
       <section className="band">
         <div className="wrap narrow prose">
           <h2>Information you send us</h2>
           <p>
-            The request form opens an email to {BRAND.email}. It does not store your message on a Purpose Academy
-            server. Your own email provider then handles delivery. Write only what you are comfortable putting in
-            an email. Please do not include health information, identity documents, or other sensitive records in
-            that first note.
+            The admissions form opens an email to {BRAND.email}. Your email provider delivers it. Write what you
+            want admissions to read. Leave health information, identity documents, and other sensitive records
+            for a later, private step.
           </p>
-          <h2>What we do not do here</h2>
+          <h2>This website</h2>
           <p>
-            This website does not run advertising trackers, and it does not ask you to create an account. The
-            learning platform is a different product, with its own sign-in, and it is where training records will live.
+            The public site does not run advertising trackers and does not ask you to create an account. Training
+            records are kept on the learning platform, behind its own sign-in.
           </p>
-          <h2>The standard we are building toward</h2>
+          <h2>The standard</h2>
           <p>
-            Learner information, once a program is operating, should follow Alberta’s Personal Information Protection
-            Act: collect what the program needs, limit who can see it, keep it only as long as the purpose requires,
-            and tell people when a breach creates a real risk. A privacy officer will be named before student records
-            are collected in earnest.
+            Learner information follows Alberta’s Personal Information Protection Act: collect what the program
+            needs, limit who can see it, keep it only as long as the purpose requires, and tell people when a
+            breach creates a real risk. Questions go to {BRAND.email}.
           </p>
           <h2>Questions</h2>
           <p>
