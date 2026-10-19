@@ -51,7 +51,7 @@ export function ContactPage() {
       `Email: ${email.trim()}`,
       `Phone: ${phone.trim() || 'Not provided'}`,
       `I am: ${roleLabel}`,
-      `Pathway: ${pathwayLabel}`,
+      `Program: ${pathwayLabel}`,
       '',
       message.trim(),
     ].join('\n')
@@ -66,7 +66,8 @@ export function ContactPage() {
       <PageIntro
         kicker="Contact"
         title="Request information."
-        lede="Tell us who you are and what you want to know. The form opens an email to the academy. It does not create an application, and it does not reserve a seat."
+        lede="Write if you are a prospective learner, an employer, a referring organization, or an instructor. The form opens an email. It is not an application, and it does not hold a seat."
+        crumbs={[{ to: '/', label: 'Home' }, { label: 'Contact' }]}
       />
       <section className="band">
         <div className="wrap contact-layout">
@@ -75,7 +76,7 @@ export function ContactPage() {
             <ol className="plain-list numbered">
               <li>Your email app opens with the message ready.</li>
               <li>You send it. If the app does not open, copy the note below and email {BRAND.email}.</li>
-              <li>We reply with what is actually ready. If a cohort is not scheduled, we will say that.</li>
+              <li>We reply with the status of the program. If no cohort is scheduled, the reply will say so.</li>
             </ol>
             <p>
               Place: {BRAND.place}
@@ -127,7 +128,7 @@ export function ContactPage() {
                   </select>
                 </label>
                 <label>
-                  Pathway
+                  Program
                   <select value={pathway} onChange={(event) => setPathway(event.target.value)}>
                     {PATHWAYS.map((item) => (
                       <option key={item.slug} value={item.slug}>{item.name}</option>

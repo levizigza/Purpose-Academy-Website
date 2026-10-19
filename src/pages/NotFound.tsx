@@ -7,11 +7,11 @@ export function NotFoundPage() {
   return (
     <PageIntro
       kicker="404"
-      title="That page is not part of the academy."
-      lede="The address may be mistyped. The programs, admissions, and contact pages are still here."
+      title="Page not found."
+      lede="The address may be out of date. Home, programs, admissions, and contact are in the menu."
     >
       <Link className="button button-navy" to="/">
-        Back to the start
+        Home
       </Link>
     </PageIntro>
   )

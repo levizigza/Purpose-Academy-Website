@@ -9,7 +9,8 @@ export function PrivacyPage() {
       <PageIntro
         kicker="Privacy"
         title="What this website does with your information."
-        lede="This is the public site. It is separate from the learning platform, which will hold student records when cohorts exist."
+        lede="This is the public website. It is separate from the learning platform, which will hold student records when a cohort exists."
+        crumbs={[{ to: '/', label: 'Home' }, { label: 'Privacy' }]}
       />
       <section className="band">
         <div className="wrap narrow prose">

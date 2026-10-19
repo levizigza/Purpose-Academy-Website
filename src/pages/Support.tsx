@@ -8,9 +8,10 @@ export function SupportPage() {
   return (
     <>
       <PageIntro
-        kicker="Learner support"
-        title="Support that respects an adult."
-        lede="Language help, digital help, and access arrangements exist so a person can meet the standard. They do not lower it, and they do not turn a capable adult into a beginner for the sake of the software."
+        kicker="Student services"
+        title="Help with language, computers, and access."
+        lede="Support is there so an adult can meet the standard of the program. It does not lower that standard, and it does not treat a skilled person as a beginner."
+        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'Learner support' }]}
       />
       <section className="band">
         <div className="wrap card-grid">
@@ -58,7 +59,7 @@ export function SupportPage() {
           </article>
         </div>
         <div className="wrap section-link">
-          <Link to="/contact?as=learner">Tell us what support you will need</Link>
+          <Link to="/contact?as=learner">Tell us what support you need</Link>
         </div>
       </section>
     </>

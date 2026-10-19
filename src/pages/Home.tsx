@@ -10,35 +10,35 @@ export function HomePage() {
       <section className="hero">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="kicker kicker-light">Calgary · Construction pathway in development</p>
+            <p className="kicker kicker-light">Calgary · Construction</p>
             <h1>
               <span>From</span>
               <span>understanding</span>
               <em>to<br />employment.</em>
             </h1>
             <p className="lede lede-light">
-              You can know the work and still lose the chance at the English name of the part, the safety rule,
-              or the proof. Purpose Academy is being built to hold those together for entry-level construction.
-              A cohort is not open today.
+              Purpose Academy prepares adults for entry-level work in Alberta. The first program is Construction.
+              It covers the English a job site uses, the safety required before practical work, and the tasks an
+              instructor can watch and record. Enrolment is not open.
             </p>
             <div className="hero-actions">
               <Link className="button button-gold" to="/programs/construction">
-                Explore Construction
+                View Construction
               </Link>
               <Link className="button button-ghost" to="/contact">
                 Request information
               </Link>
             </div>
             <p className="hero-fine">
-              The instructor stays in the room. The platform does not declare someone competent, and this site
-              does not promise a job.
+              Competent means an instructor has seen the work. The learning platform does not assign that status,
+              and this website does not promise a job.
             </p>
           </div>
           <figure className="hero-figure">
             <img src={publicUrl('media/site.jpg')} alt="A crew in hard hats stands above a concrete building under construction." />
             <figcaption>
               <span>Supervised practice</span>
-              Human verification, not a video completed.
+              An instructor watches the skill. A completed video does not count as proof.
             </figcaption>
           </figure>
         </div>
@@ -46,7 +46,7 @@ export function HomePage() {
 
       <section className="measure" aria-label="What the school is organized around">
         <div className="wrap measure-grid">
-          <p><strong>Construction</strong> first pathway</p>
+          <p><strong>Construction</strong> first program</p>
           <p><strong>Six stages</strong> from entry to work</p>
           <p><strong>Three states</strong> learned, practised, competent</p>
           <p><strong>{LANGUAGES.length} languages</strong> beside English, for a time</p>
@@ -57,10 +57,10 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Before you enquire</p>
-            <h2>The facts that have to sit beside the promise.</h2>
+            <h2>The facts, in one place.</h2>
             <p>
-              A serious program page tells you the place, the status, the language, the assessment, and the
-              cost. Where Purpose Academy does not have an answer yet, the page says so.
+              Place, status, language, assessment, cost, and student aid. Where a decision has not been made,
+              the line says it has not been made.
             </p>
           </div>
           <dl className="fact-list">
@@ -77,11 +77,11 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-head">
-            <p className="kicker">Pathways</p>
-            <h2>One academy. Three doors. Only one is being built now.</h2>
+            <p className="kicker">Programs</p>
+            <h2>Three programs. Only Construction can be discussed for a first cohort.</h2>
             <p>
-              Logistics and Community Support reuse the same architecture later. They are on the site so the
-              shape of the school is honest, not because a person can enrol in them today.
+              Logistics and Community Support are published because they are part of the plan. Neither is open
+              for enrolment.
             </p>
           </div>
           <div className="pathway-grid">
@@ -92,7 +92,7 @@ export function HomePage() {
                   <p className="chip">{item.status}</p>
                   <h3>{item.name}</h3>
                   <p>{item.summary}</p>
-                  <Link to={`/programs/${item.slug}`}>Read the pathway</Link>
+                  <Link to={`/programs/${item.slug}`}>View program</Link>
                 </div>
               </article>
             ))}
@@ -104,10 +104,11 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head section-head-light">
             <p className="kicker kicker-light">Occupational language</p>
-            <h2>The support language explains the thing. English does the job.</h2>
+            <h2>Another language can explain the lesson. English is what the job requires.</h2>
             <p>
-              A learner may begin with a picture, the English word, the sound of it, and a meaning in a language
-              they already know. As the word becomes usable, the translation leaves. The standard stays.
+              A lesson may start with a picture, the English word, and a meaning in a language the learner
+              already knows. When the learner can use the English, the translation is removed. The assessment
+              stays in English.
             </p>
           </div>
           <ol className="bridge-steps">
@@ -137,8 +138,8 @@ export function HomePage() {
             </li>
           </ol>
           <p className="bridge-note">
-            Designed support languages: {LANGUAGES.join(', ')}. If a learner already knows hammer, drill, and
-            stud, the system should not keep teaching them. Header, flashing, and joist get the extra pictures.
+            Support languages: {LANGUAGES.join(', ')}. A learner who already knows hammer, drill, and stud is
+            not kept on those words. Header, flashing, and joist are where the extra pictures belong.
           </p>
         </div>
       </section>
@@ -147,10 +148,10 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">The student journey</p>
-            <h2>Twenty steps, held in six stages.</h2>
+            <h2>From registration to the job search.</h2>
             <p>
-              Employment is the end of the sequence. Finishing a lesson is not the same thing as being ready
-              for a site.
+              The program is twenty steps, grouped into six stages. Employment preparation is the last stage.
+              Finishing a lesson is not the same as being ready for a site.
             </p>
           </div>
           <ol className="stage-row">
@@ -163,7 +164,7 @@ export function HomePage() {
             ))}
           </ol>
           <p className="section-link">
-            <Link to="/learning">Walk the twenty steps</Link>
+            <Link to="/learning">See the twenty steps</Link>
           </p>
         </div>
       </section>
@@ -172,7 +173,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Evidence</p>
-            <h2>Learned is not competent.</h2>
+            <h2>Three different records of a skill.</h2>
           </div>
           <ol className="states">
             {STATES.map((state, index) => (
@@ -192,19 +193,19 @@ export function HomePage() {
             <img src={publicUrl('media/plans.jpg')} alt="Hands drawing a building plan on a wooden table, with a scale rule beside the sheet." />
           </figure>
           <div>
-            <p className="kicker">Why one pathway</p>
-            <h2>The barriers arrive together. The school should too.</h2>
+            <p className="kicker">Why one program first</p>
+            <h2>Language, safety, and a record have to be taught together.</h2>
             <p>
-              A person may know the trade and still miss the English name of the part. Another may speak English
-              and not yet know Canadian site safety. Another can pass a quiz and has never been watched doing the
-              work. Another is capable and has no employer to show it to.
+              Some people know the trade and do not yet know the English name of the tool. Some speak English
+              and have not learned Canadian site safety. Some can pass a quiz and have never been watched doing
+              the work. Some are capable and have no local record to show an employer.
             </p>
             <p>
-              Teaching only one of those things leaves the others in place. Purpose Academy is designed as a
-              workforce-integration system: communication, technical foundations, supervised practice, verified
-              evidence, and a transition toward employment.
+              Teaching only one of those leaves the others in the way. Construction puts workplace English,
+              safety, supervised practice, and a written record in one program, and ends with help preparing
+              for employment.
             </p>
-            <Link className="text-link" to="/about">Read the purpose of the academy</Link>
+            <Link className="text-link" to="/about">Read the purpose of the school</Link>
           </div>
         </div>
       </section>
@@ -239,7 +240,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Who this is for</p>
-            <h2>Three people. Three different questions.</h2>
+            <h2>Learners, employers, and referring organizations.</h2>
           </div>
           <div className="card-grid">
             {AUDIENCES.map((item) => (
@@ -247,7 +248,7 @@ export function HomePage() {
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
                 <Link className="text-link" to={`/contact?as=${item.as}`}>
-                  Write as {item.as === 'learner' ? 'a learner' : item.as === 'employer' ? 'an employer' : 'a partner'}
+                  {item.as === 'learner' ? 'Request learner information' : item.as === 'employer' ? 'Contact us as an employer' : 'Contact us as a referring organization'}
                 </Link>
               </article>
             ))}
@@ -258,15 +259,15 @@ export function HomePage() {
       <section className="close">
         <div className="wrap close-inner">
           <div>
-            <p className="kicker kicker-light">Begin a conversation</p>
-            <h2>Tell us who you are. We will tell you what is actually ready.</h2>
+            <p className="kicker kicker-light">Contact</p>
+            <h2>Ask what is ready. We will answer with the status of Construction.</h2>
           </div>
           <div className="close-actions">
             <Link className="button button-gold" to="/contact?as=learner&pathway=construction">
-              I want to learn
+              Request information
             </Link>
             <Link className="button button-ghost" to="/contact?as=employer">
-              I hire
+              For employers
             </Link>
           </div>
         </div>

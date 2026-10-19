@@ -21,16 +21,17 @@ export function LearningPage() {
   return (
     <>
       <PageIntro
-        kicker="How learning works"
-        title="Technology supports the learner. A person verifies the skill."
-        lede="The academy distinguishes understanding, repetition, recognition, communication, and practical application. A quiz can show the first of those. It cannot award the last."
+        kicker="Student services"
+        title="How a skill is taught, practised, and signed off."
+        lede="A quiz can show that a person understood a lesson. It cannot show that they can do the work. An instructor makes that decision and records it."
+        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'How learning works' }]}
       />
 
       <section className="band">
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">Operating stages</p>
-            <h2>The twenty steps, grouped so a person can see where they are.</h2>
+            <h2>The twenty steps, in the order a student meets them.</h2>
           </div>
           <div className="stage-filter" role="tablist" aria-label="Filter the journey by stage">
             <button type="button" aria-pressed={stage === 'all'} onClick={() => setStage('all')}>
@@ -77,10 +78,10 @@ export function LearningPage() {
           </div>
           <div>
             <p className="kicker">The learning platform</p>
-            <h2>The website explains the school. The platform is where practice will live.</h2>
+            <h2>This website explains the school. Practice will happen on the learning platform.</h2>
             <p>
-              Students, instructors, and administrators each have their own door. Learners see the next useful action.
-              Instructors see who needs help, which assessment is waiting, and which safety gate is still shut.
+              Students, instructors, and administrators each sign in separately. A learner sees the next task.
+              An instructor sees who needs help, which assessment is waiting, and which safety requirement is still closed.
             </p>
             <p>
               <a className="text-link" href="https://levizigza.github.io/Purpose-Academy-Application/" target="_blank" rel="noreferrer">
@@ -95,10 +96,10 @@ export function LearningPage() {
         <div className="wrap diagram-block">
           <div>
             <p className="kicker">Source diagram</p>
-            <h2>The original Construction journey.</h2>
+            <h2>The Construction journey, in the original drawing.</h2>
             <p>
-              The twenty-step drawing is kept because it treats employment as the end of a sequence. The six stages
-              on this site are that drawing, edited into an operating model.
+              The twenty-step drawing ends at employment. The six stages on this website are that sequence,
+              grouped so a student can see where they are.
             </p>
             <button className="button button-navy" type="button" onClick={() => setDiagram(true)}>
               Open the journey diagram
@@ -121,7 +122,7 @@ export function LearningPage() {
 
       <section className="close">
         <div className="wrap close-inner">
-          <h2>Admissions begins with a conversation, not a shopping cart.</h2>
+          <h2>The next step is a request for information, not an application.</h2>
           <Link className="button button-gold" to="/admissions">
             How to join
           </Link>

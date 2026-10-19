@@ -7,9 +7,10 @@ export function ProtectionPage() {
   return (
     <>
       <PageIntro
-        kicker="Student protection"
-        title="A school is accountable for what it says and what it keeps."
-        lede="Policies on this page describe the protections the academy is building. Where a formal procedure is not yet adopted, the page says so, instead of pretending a handbook already exists."
+        kicker="Student services"
+        title="Records, privacy, complaints, and safety."
+        lede="These are the protections the school is writing. Where a formal procedure is not yet adopted, that is stated. A handbook is not implied."
+        crumbs={[{ to: '/', label: 'Home' }, { label: 'Student services' }, { label: 'Student protection' }]}
       />
       <section className="band">
         <div className="wrap prose-blocks">
@@ -46,7 +47,7 @@ export function ProtectionPage() {
             <p>
               Practical construction work requires hazard assessment, protective equipment, qualified supervision,
               and a way to record an incident. Those controls are part of opening a workshop or a placement. They
-              are not optional extras after marketing.
+              are required before a workshop or a placement can open.
             </p>
           </article>
           <article>

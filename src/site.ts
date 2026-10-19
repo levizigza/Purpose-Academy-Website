@@ -39,17 +39,17 @@ export const PATHWAYS: Pathway[] = [
     slug: 'construction',
     name: 'Construction',
     short: 'Construction readiness',
-    status: 'First pathway',
+    status: 'First program',
     phase: 'In development',
     tone: 'construction',
     image: publicUrl('media/crew.jpg'),
     imageAlt: 'Two workers in orange safety gear on a concrete deck among rebar and power tools.',
     summary:
-      'Occupational English, safety, tools, measurement, and supervised practice for entry-level construction work in Alberta.',
+      'Workplace English, safety, tools, measurement, and supervised practice for entry-level construction work in Alberta.',
     promise:
-      'Construction is the pathway Purpose Academy is building first. Learners move from pictures and workplace words to instructions, safety gates, shop practice, and documented skill.',
+      'Construction is the first program. Students learn the words a site uses, the safety required before practical work, and the tasks an instructor can watch and record.',
     forWhom:
-      'Adults who want to enter construction in Alberta, including newcomers and career changers. Prior trade experience is welcome. It is not required.',
+      'Adults entering construction in Alberta, including newcomers and people changing careers. Previous trade experience is welcome. It is not required.',
     studies: [
       { title: 'Workplace language', text: 'Visual vocabulary, simple sentences, and the instructions a site actually uses.' },
       { title: 'Digital foundations', text: 'Mouse, files, email, and the confidence to handle ordinary workplace tasks on a screen.' },
@@ -61,7 +61,7 @@ export const PATHWAYS: Pathway[] = [
       { title: 'Interior finishes', text: 'The work that closes a space, taught as a system rather than a list of parts.' },
       { title: 'Exterior systems', text: 'Weather, envelope, and the outside of the building.' },
       { title: 'Trade awareness', text: 'Basic electrical, plumbing, and HVAC awareness so a new worker can recognize the work and the limits of their role.' },
-      { title: 'Supervised practice', text: 'Stations where an instructor watches the skill. A video is not a competency.' },
+      { title: 'Supervised practice', text: 'Stations where an instructor watches the skill. Watching a video is not the same as demonstrating it.' },
       { title: 'Workplace transfer', text: 'Approved on-site experience, with attendance, a daily log, and supervisor feedback.' },
     ],
     leavesWith: [
@@ -82,17 +82,17 @@ export const PATHWAYS: Pathway[] = [
     slug: 'logistics',
     name: 'Logistics',
     short: 'Logistics readiness',
-    status: 'Later pathway',
+    status: 'Not open',
     phase: 'After Construction',
     tone: 'logistics',
     image: publicUrl('media/warehouse.jpg'),
     imageAlt: 'A warehouse aisle of yellow bins and tall racks of boxed inventory.',
     summary:
-      'The same learning architecture, retuned for warehouse and logistics work: vocabulary, equipment, inventory, and safety.',
+      'Warehouse and logistics work: vocabulary, equipment, inventory, and safety. This program is not open.',
     promise:
-      'Logistics stays on the map because the school is one system with more than one door. It opens only after Construction has been validated, staffed, and approved for the work it claims.',
+      'Logistics will use the same standard as Construction: workplace English, safety, supervised practice, and an instructor’s record. It will not be offered until Construction has been staffed and the logistics requirements are written.',
     forWhom:
-      'Adults aiming at warehouse, inventory, and movement-of-goods roles. The pathway is described now so the direction is visible. It is not open for enrolment.',
+      'Adults aiming at warehouse, inventory, and shipping roles. The program is described here so the plan is public. It is not open for enrolment.',
     studies: [
       { title: 'Occupational vocabulary', text: 'The words of receiving, put-away, picking, packing, and shipping.' },
       { title: 'Warehouse safety', text: 'Pedestrian routes, equipment awareness, and the rules that keep a floor orderly.' },
@@ -101,29 +101,29 @@ export const PATHWAYS: Pathway[] = [
       { title: 'Supervised practice', text: 'The same rule as Construction: an instructor verifies what was demonstrated.' },
     ],
     leavesWith: [
-      'The same evidence standard: Learned, Practised, Competent.',
-      'A Skills Passport scoped to logistics competencies, once the pathway exists.',
+      'The same three records as Construction: Learned, Practised, and Competent.',
+      'A Skills Passport for logistics competencies, once the program exists.',
     ],
     notThis: [
-      'This pathway is not currently offered.',
-      'It will not open on a slogan. It needs its own employer evidence, safety rules, and regulatory path.',
+      'This program is not offered.',
+      'It needs its own task list, safety rules, and regulatory review before a start date can be set.',
     ],
   },
   {
     slug: 'community-support',
     name: 'Community Support',
     short: 'Community support readiness',
-    status: 'Later pathway',
+    status: 'Not open',
     phase: 'After Construction',
     tone: 'community',
     image: publicUrl('media/community.jpg'),
     imageAlt: 'A support worker sits at a table with two older women, knitting with them in a care setting.',
     summary:
-      'A future pathway for client communication, documentation, boundaries, and front-line community work.',
+      'Client communication, notes, professional boundaries, and front-line community work. This program is not open.',
     promise:
-      'Community Support is held until the occupation, the credential implications, and the placement rules are understood on their own terms. Dignity and privacy are part of the design, not a slogan added later.',
+      'Community Support will be written for the occupation it serves, including placement rules and privacy. It will not be offered until those requirements are clear.',
     forWhom:
-      'Adults drawn to work that supports other people: community agencies, older adults, disability services, and newcomer settings. The page exists so the intention is public. The program is not.',
+      'Adults interested in work that supports other people, including community agencies, older adults, disability services, and newcomer services. The program is not open for enrolment.',
     studies: [
       { title: 'Client communication', text: 'Plain language, listening, and the words a support role uses every day.' },
       { title: 'Documentation', text: 'Notes that are accurate, respectful, and limited to what the role requires.' },
@@ -132,11 +132,11 @@ export const PATHWAYS: Pathway[] = [
       { title: 'Referrals', text: 'Knowing when a need belongs to another service, and how to say so clearly.' },
     ],
     leavesWith: [
-      'A future Skills Passport for this pathway, only after the competencies are independently validated.',
+      'A Skills Passport for this program, after the competencies have been validated.',
     ],
     notThis: [
       'Purpose Academy does not replace settlement, health, or legal services.',
-      'This pathway is not offered, and it will not be offered until placement requirements are clear.',
+      'This program is not offered. It will not be offered until placement requirements are clear.',
     ],
   },
 ]
@@ -146,7 +146,7 @@ export const STAGES = [
     id: 'entry',
     n: '01',
     title: 'Entry and baseline',
-    text: 'Registration, consent, a baseline look at language, numeracy, digital skill and safety awareness, then a pathway choice.',
+    text: 'Registration, consent, a baseline look at language, numeracy, computer skill and safety awareness, then a program choice.',
   },
   {
     id: 'foundations',
@@ -184,12 +184,12 @@ export const STEPS: { n: number; title: string; text: string; stage: string }[] 
   { n: 1, stage: '01', title: 'Login', text: 'A secure door for students, instructors, and administrators. Each person sees only their own work.' },
   { n: 2, stage: '01', title: 'Registration', text: 'Name, contact, the language you want beside English, and the experience you already carry.' },
   { n: 3, stage: '01', title: 'Baseline assessment', text: 'Language, numeracy, digital skills, safety awareness, and work readiness. A starting point, not a verdict.' },
-  { n: 4, stage: '01', title: 'Career interest', text: 'Which kind of work fits your strengths. Interest guides the pathway. It does not invent a credential.' },
-  { n: 5, stage: '01', title: 'Choose your pathway', text: 'Construction is the door being built first. The other two stay visible so the school has a shape.' },
-  { n: 6, stage: '01', title: 'Supplementary language', text: 'Spanish, French, Arabic, Hindi, Amharic, or Tigrinya can carry meaning while English is still forming.' },
-  { n: 7, stage: '02', title: 'Visual vocabulary', text: 'See the object. Hear the English word. Read a plain meaning. Understanding comes before memorizing.' },
-  { n: 8, stage: '02', title: 'Supported practice', text: 'Match the word to the picture, in class and at home. The support is a bridge, and bridges are temporary.' },
-  { n: 9, stage: '02', title: 'English-only vocabulary', text: 'When the word is yours, the translation steps back. The standard does not get easier. The route does.' },
+  { n: 4, stage: '01', title: 'Career interest', text: 'Which kind of work fits your strengths. Interest guides the program. It does not create a credential.' },
+  { n: 5, stage: '01', title: 'Choose your program', text: 'Construction is the program being prepared. Logistics and Community Support are listed, and they are not open.' },
+  { n: 6, stage: '01', title: 'Support language', text: 'Spanish, French, Arabic, Hindi, Amharic, or Tigrinya can explain a lesson while the English is still forming.' },
+  { n: 7, stage: '02', title: 'Visual vocabulary', text: 'See the object, hear the English word, and read a plain meaning before you are asked to use it from memory.' },
+  { n: 8, stage: '02', title: 'Supported practice', text: 'Match the word to the picture, in class and at home. The translation is removed once the English is usable.' },
+  { n: 9, stage: '02', title: 'English-only vocabulary', text: 'The picture stays. The translation does not. The assessment stays in English.' },
   { n: 10, stage: '02', title: 'Simple sentences', text: 'Use the word in a sentence a workplace would actually say.' },
   { n: 11, stage: '02', title: 'Workplace instructions', text: 'Hear an instruction, follow it, and show that the language survived contact with the task.' },
   { n: 12, stage: '02', title: 'Basic computer skills', text: 'A mouse, a file, an email. Digital confidence for the workplaces people are walking into.' },
@@ -206,25 +206,25 @@ export const STEPS: { n: number; title: string; text: string; stage: string }[] 
 export const STATES = [
   {
     name: 'Learned',
-    text: 'You can explain the thing. A lesson, a picture, or a quiz can get you here. It is real, and it is not yet the work.',
+    text: 'You can explain the skill. A lesson, a picture, or a quiz can reach this point. It is a record of understanding, not of doing the work.',
   },
   {
     name: 'Practised',
-    text: 'You have tried the skill with someone watching. The attempt counts. The standard may still be ahead of you.',
+    text: 'You have tried the skill with someone watching. The attempt is recorded. The standard may still be ahead of you.',
   },
   {
     name: 'Competent',
-    text: 'An authorized instructor confirms the criteria. Technology does not award this state. A person does.',
+    text: 'An authorized instructor confirms that the criteria were met. The learning platform cannot assign this status.',
   },
 ] as const
 
 export const VALUES = [
-  { name: 'Dignity', text: 'Adults arrive with experience and judgment. Language support is a scaffold, never a way of talking down.' },
-  { name: 'Safety', text: 'Safety runs through the program. It is not a module you finish and forget before the tools come out.' },
-  { name: 'Evidence', text: 'Claims about skill, partnerships, and outcomes have to be traceable. If we have not measured it, we do not print it.' },
-  { name: 'Practicality', text: 'Lessons are organized around tasks a Canadian workplace actually asks someone to do.' },
-  { name: 'Human judgment', text: 'The platform supports learning. Instructors teach, observe, correct, and evaluate.' },
-  { name: 'Accessibility', text: 'The school should be understandable for people with different languages, digital experience, and access needs.' },
+  { name: 'Dignity', text: 'Students are adults. A support language explains the lesson. It is not a way of treating a skilled person as a beginner.' },
+  { name: 'Safety', text: 'Safety is taught before practical work and checked again when the tools come out.' },
+  { name: 'Evidence', text: 'A claim about a skill, a partnership, or a result has to name its source. What has not been measured is not published as a result.' },
+  { name: 'Practicality', text: 'Lessons follow tasks a workplace in Alberta asks an entry-level person to do.' },
+  { name: 'Human judgment', text: 'The platform organizes lessons and records. Instructors teach, watch, correct, and decide.' },
+  { name: 'Accessibility', text: 'Lessons and this website should be usable across languages, computer experience, and access needs.' },
 ] as const
 
 export const TEAM = [
@@ -238,71 +238,71 @@ export const TEAM = [
 export const AUDIENCES = [
   {
     as: 'learner',
-    title: 'If you want the work',
-    text: 'You may already know a trade, or you may be starting. What you need is the English a site uses, the safety that comes first, and a record a stranger can read. Construction is the door being built. You cannot enrol today.',
+    title: 'Prospective learners',
+    text: 'You may already know a trade, or you may be starting. Construction covers the English a site uses, the safety that comes first, and a record an employer can read. Enrolment is not open. You can ask to be told when a cohort is scheduled.',
   },
   {
     as: 'employer',
-    title: 'If you hire',
-    text: 'You should be able to see what was taught, what was practised, and which instructor verified it. A Skills Passport is that record. It is not a promise that the person can run every machine, and it is not a Red Seal.',
+    title: 'Employers',
+    text: 'A Skills Passport is meant to show what was taught, what was practised, and which instructor verified it. It does not say the person can operate every machine, and it is not a Red Seal.',
   },
   {
     as: 'partner',
-    title: 'If you refer someone',
-    text: 'A good referral names who the pathway is for, what support exists, and where Purpose Academy stops. It does not replace settlement, health, or legal help.',
+    title: 'Referring organizations',
+    text: 'A useful referral says who the program is for, what support is available, and what Purpose Academy does not provide. The school does not replace settlement, health, or legal services.',
   },
 ] as const
 
 export const FACTS = [
-  { term: 'Place', detail: 'Calgary, Alberta. A street address is published when a facility is confirmed.' },
-  { term: 'Status', detail: 'In development. These pages describe the model being built. They are not an offer of enrolment.' },
-  { term: 'First pathway', detail: 'Construction. Logistics and Community Support are on the map, and they are not open.' },
-  { term: 'Language of instruction', detail: 'English. Spanish, French, Arabic, Hindi, Amharic, and Tigrinya can explain a new idea, then step back.' },
-  { term: 'Assessment', detail: 'Learned, Practised, Competent. Only an authorized instructor can mark Competent.' },
-  { term: 'Record', detail: 'A Skills Passport. Not an apprenticeship, not a Red Seal, and not a safety ticket from a provider we have not named.' },
-  { term: 'Tuition and start date', detail: 'Not published. A price or a date appears only after it is confirmed.' },
-  { term: 'Student Aid', detail: 'Not available. The academy is not designated for Alberta Student Aid.' },
+  { term: 'Place', detail: 'Calgary, Alberta. A street address will be published when a campus is confirmed.' },
+  { term: 'Status', detail: 'In development. These pages describe the school being built. They are not an offer of enrolment.' },
+  { term: 'First program', detail: 'Construction. Logistics and Community Support are not open.' },
+  { term: 'Language of instruction', detail: 'English. Spanish, French, Arabic, Hindi, Amharic, and Tigrinya may explain a lesson, and are then removed.' },
+  { term: 'Assessment', detail: 'Learned, Practised, or Competent. Only an authorized instructor can record Competent.' },
+  { term: 'Record', detail: 'A Skills Passport. It is not an apprenticeship, a Red Seal, or a safety certificate from an unnamed provider.' },
+  { term: 'Tuition and start date', detail: 'Not set. A price and a date will be published when both are confirmed.' },
+  { term: 'Student Aid', detail: 'Not available. Purpose Academy is not designated for Alberta Student Aid.' },
 ] as const
 
 export const REQUIREMENTS = [
-  { item: 'Who may enquire', now: 'Adults who want entry-level construction work in Alberta, including newcomers and people changing careers.' },
-  { item: 'Prior schooling', now: 'Not required to begin a conversation. A high-school rule and a mature-learner rule will be written before anyone is asked to enrol.' },
-  { item: 'Trade experience', now: 'Not required. Experience from another country counts, and it should be described plainly.' },
-  { item: 'English', now: 'Instruction and assessment are in English. A support language can carry meaning while the English forms. A benchmark will be published before enrolment. It will not be invented on this page.' },
-  { item: 'Conversation', now: 'We ask what work you want, what you already know, and whether Construction is the right door.' },
-  { item: 'Tuition', now: 'Unpublished until the program and the price are confirmed.' },
-  { item: 'Start date', now: 'Unpublished. No cohort is scheduled.' },
-  { item: 'Student Aid', now: 'Not designated. Do not build a budget around it.' },
+  { item: 'Who may enquire', now: 'Adults seeking entry-level construction work in Alberta, including newcomers and people changing careers.' },
+  { item: 'Prior schooling', now: 'Not required in order to request information. A high-school requirement and a mature-learner rule will be published before enrolment opens.' },
+  { item: 'Trade experience', now: 'Not required. Experience gained outside Canada should be described as it was.' },
+  { item: 'English', now: 'Classes and assessments are in English. A support language may be used while the English is forming. An English benchmark has not been set. It will be published before enrolment opens.' },
+  { item: 'What we ask', now: 'The work you want, the experience you already have, and whether Construction is the right program.' },
+  { item: 'Tuition', now: 'Not set.' },
+  { item: 'Start date', now: 'Not set. No cohort is scheduled.' },
+  { item: 'Student Aid', now: 'Not designated. Do not plan a budget around it.' },
 ] as const
 
 export const FAQS = [
   {
     q: 'Can I enrol today?',
-    a: 'Not yet. Purpose Academy is in development, with Construction as the first pathway. Request information and you will hear when a cohort is actually being scheduled.',
+    a: 'No. Construction is the first program, and no cohort is scheduled. Request information and we will write when a start date exists.',
   },
   {
     q: 'Is this an apprenticeship or a Red Seal program?',
-    a: 'No. The school prepares people for entry-level work and documents evidence of readiness. It does not replace apprenticeship, a Red Seal, or any other regulated credential.',
+    a: 'No. The program prepares people for entry-level work and keeps a record of what an instructor has seen. It does not replace an apprenticeship, a Red Seal, or any other regulated credential.',
   },
   {
     q: 'Can I use Alberta Student Aid?',
-    a: 'No. Licensing and Student Aid designation are separate, and designation is not in place. Please do not plan a budget around it.',
+    a: 'No. Purpose Academy is not designated for Alberta Student Aid. Do not plan a budget around it.',
   },
   {
     q: 'What does it cost?',
-    a: 'Tuition will be published when a program and its price are confirmed. This site will not invent a number.',
+    a: 'Tuition has not been set. It will be published with the program details, before anyone is asked to enrol.',
   },
   {
-    q: 'Which languages can sit beside English?',
-    a: 'The learning model is designed around Spanish, French, Arabic, Hindi, Amharic, and Tigrinya. The support language explains the idea. English remains the language of the workplace.',
+    q: 'Which languages can be used beside English?',
+    a: 'Spanish, French, Arabic, Hindi, Amharic, and Tigrinya. They explain the lesson. English is the language of the class, the assessment, and the workplace.',
   },
   {
-    q: 'Do I already need construction experience?',
-    a: 'No. People with experience from another country are recognized. People starting fresh are expected. The baseline assessment finds the starting point.',
+    q: 'Do I need construction experience already?',
+    a: 'No. People with experience from another country are expected, and so are people starting without it. A baseline assessment finds the starting point.',
   },
   {
     q: 'Where is the campus?',
-    a: 'Calgary, Alberta. A street address will be published when a facility is confirmed.',
+    a: 'Calgary, Alberta. A street address will be published when a campus is confirmed.',
   },
 ] as const
 

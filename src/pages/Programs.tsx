@@ -9,8 +9,9 @@ export function ProgramsPage() {
     <>
       <PageIntro
         kicker="Programs"
-        title="Pathways into work, built one at a time."
-        lede="College sites often show every program as if it were equally open. This one will not. Construction is the pathway under development. The other two are the architecture, waiting for proof."
+        title="Programs."
+        lede="Construction is the program under development. Logistics and Community Support are described so the plan of the school is public. They are not offered."
+        crumbs={[{ to: '/', label: 'Home' }, { label: 'Programs' }]}
       />
       <section className="band">
         <div className="wrap program-list">
@@ -42,11 +43,11 @@ export function ProgramPage() {
     return (
       <PageIntro
         kicker="Programs"
-        title="That pathway is not on the map."
-        lede="Construction, Logistics, and Community Support are the three doors. One of those names will get you there."
+        title="That program is not listed."
+        lede="The programs are Construction, Logistics, and Community Support."
       >
         <Link className="button button-navy" to="/programs">
-          All pathways
+          All programs
         </Link>
       </PageIntro>
     )
@@ -72,7 +73,7 @@ export function ProgramPage() {
             </figure>
             <h2>Who it is for</h2>
             <p>{program.forWhom}</p>
-            <h2>What the pathway studies</h2>
+            <h2>What the program covers</h2>
             <ul className="study-list">
               {program.studies.map((item) => (
                 <li key={item.title}>
@@ -127,7 +128,7 @@ export function ProgramPage() {
             <Link className="button button-gold" to={`/contact?as=learner&pathway=${program.slug}`}>
               Ask about {program.name}
             </Link>
-            <h2 className="glance-next">This pathway is not</h2>
+            <h2 className="glance-next">This program is not</h2>
             <ul>
               {program.notThis.map((item) => (
                 <li key={item}>{item}</li>

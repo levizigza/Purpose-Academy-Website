@@ -26,11 +26,13 @@ function Menu({
   label,
   open,
   setOpen,
+  current = false,
   children,
 }: {
   label: string
   open: boolean
   setOpen: (value: boolean) => void
+  current?: boolean
   children: ReactNode
 }) {
   const pointer = useRef(false)
@@ -42,7 +44,7 @@ function Menu({
 
   return (
     <div
-      className={open ? 'menu is-open' : 'menu'}
+      className={['menu', open && 'is-open', current && 'is-current'].filter(Boolean).join(' ')}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       onMouseDown={() => {
@@ -63,23 +65,26 @@ function Menu({
   )
 }
 
-const STUDY = [
-  { to: '/support', label: 'Learner support', note: 'Language, digital skill, access' },
-  { to: '/outcomes', label: 'Outcomes', note: 'What we will measure' },
+const SERVICES = [
+  { to: '/learning', label: 'How learning works', note: 'Twenty steps, six stages' },
+  { to: '/support', label: 'Learner support', note: 'Language, computers, access' },
+  { to: '/outcomes', label: 'Outcomes', note: 'What will be reported' },
   { to: '/protection', label: 'Student protection', note: 'Records, privacy, complaints' },
 ]
 
 export function Shell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
   const [programsOpen, setProgramsOpen] = useState(false)
-  const [studyOpen, setStudyOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
   const location = useLocation()
+  const onServices = SERVICES.some((item) => location.pathname === item.to)
+  const onPrograms = location.pathname.startsWith('/programs')
   const menuId = useId()
 
   useEffect(() => {
     setOpen(false)
     setProgramsOpen(false)
-    setStudyOpen(false)
+    setServicesOpen(false)
   }, [location.pathname])
 
   useEffect(() => {
@@ -106,10 +111,11 @@ export function Shell({ children }: { children: ReactNode }) {
             <span className="nav-toggle-bars" aria-hidden="true" />
           </button>
           <nav id={menuId} className={open ? 'site-nav is-open' : 'site-nav'} aria-label="Primary">
-            <Menu label="Programs" open={programsOpen || open} setOpen={setProgramsOpen}>
+            <NavLink to="/" end>Home</NavLink>
+            <Menu label="Programs" open={programsOpen || open} setOpen={setProgramsOpen} current={onPrograms}>
               <Link className="menu-lead" to="/programs">
-                <strong>All pathways</strong>
-                <span>Construction first. Two doors held for later.</span>
+                <strong>All programs</strong>
+                <span>Construction is the program being built.</span>
               </Link>
               {PATHWAYS.map((item) => (
                 <Link key={item.slug} to={`/programs/${item.slug}`}>
@@ -119,9 +125,8 @@ export function Shell({ children }: { children: ReactNode }) {
               ))}
             </Menu>
             <NavLink to="/admissions">Admissions</NavLink>
-            <NavLink to="/learning">How learning works</NavLink>
-            <Menu label="Campus" open={studyOpen || open} setOpen={setStudyOpen}>
-              {STUDY.map((item) => (
+            <Menu label="Student services" open={servicesOpen || open} setOpen={setServicesOpen} current={onServices}>
+              {SERVICES.map((item) => (
                 <Link key={item.to} to={item.to}>
                   <strong>{item.label}</strong>
                   <span>{item.note}</span>
@@ -130,6 +135,7 @@ export function Shell({ children }: { children: ReactNode }) {
             </Menu>
             <NavLink to="/employers">Employers</NavLink>
             <NavLink to="/about">About</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
             <Link className="button button-gold nav-cta" to="/contact">
               Request information
             </Link>
@@ -143,8 +149,7 @@ export function Shell({ children }: { children: ReactNode }) {
             <Logo />
             <p className="footer-line">{BRAND.line}</p>
             <p>
-              A Calgary workforce academy being built around occupational language, safety, supervised practice,
-              and evidence a person can show.
+              A Calgary school for adults entering the workforce. Construction is the first program. Enrolment is not open.
             </p>
           </div>
           <div>
@@ -161,7 +166,7 @@ export function Shell({ children }: { children: ReactNode }) {
             <h2>The academy</h2>
             <ul>
               <li><Link to="/support">Learner support</Link></li>
-              <li><Link to="/employers">Employers and partners</Link></li>
+              <li><Link to="/employers">Employers</Link></li>
               <li><Link to="/outcomes">Outcomes</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/protection">Student protection</Link></li>
@@ -187,9 +192,9 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
         <div className="wrap footer-note">
           <p>
-            Purpose Academy is a workforce-readiness initiative under development. These pages describe the model
-            being built. They are not an offer of a licensed program, Alberta Student Aid, a regulated trade
-            certificate, or a job. Tuition, schedule, and credential wording will be published when they are confirmed.
+            Purpose Academy is a workforce school under development in Calgary. These pages describe the programs
+            being built. They are not an offer of enrolment, a licensed program, Alberta Student Aid, a regulated
+            trade certificate, or a job. Tuition, dates, and credential wording will be published when they are confirmed.
           </p>
           <p>
             Purpose Academy is based in Calgary, on the traditional territories of the Niitsitapi (Blackfoot

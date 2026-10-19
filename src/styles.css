@@ -200,12 +200,13 @@ a:hover { color: var(--gold-deep); }
   border: 0;
   font: inherit;
   font-weight: 620;
-  font-size: 0.98rem;
-  padding: 0.55rem 0.7rem;
+  font-size: 0.94rem;
+  padding: 0.5rem 0.48rem;
   cursor: pointer;
 }
 
-.site-nav > a[aria-current="page"] { color: var(--gold-deep); }
+.site-nav > a[aria-current="page"],
+.menu.is-current > .menu-button { color: var(--gold-deep); }
 .nav-cta { margin-left: 0.45rem; }
 
 .menu { position: relative; }
