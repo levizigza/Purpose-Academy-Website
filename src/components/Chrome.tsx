@@ -12,8 +12,12 @@ export function usePage(title: string) {
 
 export function Logo() {
   return (
-    <Link className="logo" to="/" aria-label="Purpose Academy, home. Construction, Logistics, and Community Support.">
-      <img className="logo-mark" src={publicUrl('brand/logo-lockup.png')} alt="" />
+    <Link className="logo" to="/" aria-label="Purpose Academy, home">
+      <img className="logo-mark" src={publicUrl('brand/logo-mark.png')} alt="" />
+      <span>
+        <span className="logo-name">Purpose Academy</span>
+        <span className="logo-place">Calgary</span>
+      </span>
     </Link>
   )
 }
@@ -88,24 +92,9 @@ export function Shell({ children }: { children: ReactNode }) {
       <a className="skip" href="#main">
         Skip to content
       </a>
-      <div className="utility">
-        <div className="wrap utility-inner">
-          <p>Calgary, Alberta · Workforce academy in development</p>
-          <p className="utility-links">
-            <a href={BRAND.platform} target="_blank" rel="noreferrer">
-              {BRAND.platformName}
-            </a>
-            <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
-          </p>
-        </div>
-      </div>
-      <div className="mast">
-        <div className="wrap">
-          <Logo />
-        </div>
-      </div>
       <header className="site-header">
         <div className="wrap header-inner">
+          <Logo />
           <button
             className="nav-toggle"
             type="button"
