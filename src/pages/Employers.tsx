@@ -16,7 +16,7 @@ export function EmployersPage() {
       <PageIntro
         kicker="Employers and partners"
         title="A partnership is a job, not a logo."
-        lede="Purpose Academy will not publish employer names, industry approval, or placement rates it does not have. If you hire, supervise, or refer, there is a specific way to help build the Construction pathway."
+        lede="Purpose Academy will not publish employer names, industry approval, or placement rates it does not have. If you hire or supervise, the useful first step is to name the tasks an entry-level person must do, and to say what evidence would make you trust a Skills Passport."
       />
       <section className="band">
         <div className="wrap role-grid">

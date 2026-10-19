@@ -236,9 +236,43 @@ export const TEAM = [
 ] as const
 
 export const AUDIENCES = [
-  { as: 'learner', title: 'Prospective learners', text: 'A clear path, language support, and an honest account of what the program produces — and what it does not.' },
-  { as: 'employer', title: 'Employers', text: 'Entry-level evidence you can read: what was taught, what was practised, and what an instructor verified.' },
-  { as: 'partner', title: 'Community partners', text: 'A referral that says who the program is for, what support exists, and where the boundary is.' },
+  {
+    as: 'learner',
+    title: 'If you want the work',
+    text: 'You may already know a trade, or you may be starting. What you need is the English a site uses, the safety that comes first, and a record a stranger can read. Construction is the door being built. You cannot enrol today.',
+  },
+  {
+    as: 'employer',
+    title: 'If you hire',
+    text: 'You should be able to see what was taught, what was practised, and which instructor verified it. A Skills Passport is that record. It is not a promise that the person can run every machine, and it is not a Red Seal.',
+  },
+  {
+    as: 'partner',
+    title: 'If you refer someone',
+    text: 'A good referral names who the pathway is for, what support exists, and where Purpose Academy stops. It does not replace settlement, health, or legal help.',
+  },
+] as const
+
+export const FACTS = [
+  { term: 'Place', detail: 'Calgary, Alberta. A street address is published when a facility is confirmed.' },
+  { term: 'Status', detail: 'In development. These pages describe the model being built. They are not an offer of enrolment.' },
+  { term: 'First pathway', detail: 'Construction. Logistics and Community Support are on the map, and they are not open.' },
+  { term: 'Language of instruction', detail: 'English. Spanish, French, Arabic, Hindi, Amharic, and Tigrinya can explain a new idea, then step back.' },
+  { term: 'Assessment', detail: 'Learned, Practised, Competent. Only an authorized instructor can mark Competent.' },
+  { term: 'Record', detail: 'A Skills Passport. Not an apprenticeship, not a Red Seal, and not a safety ticket from a provider we have not named.' },
+  { term: 'Tuition and start date', detail: 'Not published. A price or a date appears only after it is confirmed.' },
+  { term: 'Student Aid', detail: 'Not available. The academy is not designated for Alberta Student Aid.' },
+] as const
+
+export const REQUIREMENTS = [
+  { item: 'Who may enquire', now: 'Adults who want entry-level construction work in Alberta, including newcomers and people changing careers.' },
+  { item: 'Prior schooling', now: 'Not required to begin a conversation. A high-school rule and a mature-learner rule will be written before anyone is asked to enrol.' },
+  { item: 'Trade experience', now: 'Not required. Experience from another country counts, and it should be described plainly.' },
+  { item: 'English', now: 'Instruction and assessment are in English. A support language can carry meaning while the English forms. A benchmark will be published before enrolment. It will not be invented on this page.' },
+  { item: 'Conversation', now: 'We ask what work you want, what you already know, and whether Construction is the right door.' },
+  { item: 'Tuition', now: 'Unpublished until the program and the price are confirmed.' },
+  { item: 'Start date', now: 'Unpublished. No cohort is scheduled.' },
+  { item: 'Student Aid', now: 'Not designated. Do not build a budget around it.' },
 ] as const
 
 export const FAQS = [

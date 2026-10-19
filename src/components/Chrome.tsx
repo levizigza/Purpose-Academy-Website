@@ -10,18 +10,10 @@ export function usePage(title: string) {
   }, [title, pathname])
 }
 
-export function Mark({ className = '' }: { className?: string }) {
-  return <img className={className} src={publicUrl('brand/logo-mark.png')} alt="" />
-}
-
 export function Logo() {
   return (
-    <Link className="logo" to="/" aria-label="Purpose Academy, home">
-      <Mark className="logo-mark" />
-      <span>
-        <span className="logo-name">Purpose Academy</span>
-        <span className="logo-place">Calgary</span>
-      </span>
+    <Link className="logo" to="/" aria-label="Purpose Academy, home. Construction, Logistics, and Community Support.">
+      <img className="logo-mark" src={publicUrl('brand/logo-lockup.png')} alt="" />
     </Link>
   )
 }
@@ -107,9 +99,13 @@ export function Shell({ children }: { children: ReactNode }) {
           </p>
         </div>
       </div>
+      <div className="mast">
+        <div className="wrap">
+          <Logo />
+        </div>
+      </div>
       <header className="site-header">
         <div className="wrap header-inner">
-          <Logo />
           <button
             className="nav-toggle"
             type="button"

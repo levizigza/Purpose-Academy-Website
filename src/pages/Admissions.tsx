@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PageIntro, usePage } from '../components/Chrome'
-import { FAQS } from '../site'
+import { FAQS, REQUIREMENTS } from '../site'
 
 const STEPS = [
   { n: '01', title: 'Request information', text: 'Tell us whether you are a learner, an employer, a partner, or a future instructor. Say which pathway you mean.' },
@@ -17,8 +17,8 @@ export function AdmissionsPage() {
     <>
       <PageIntro
         kicker="Admissions"
-        title="A clear way in, without a false open date."
-        lede="Purpose Academy is not enrolling a cohort today. The admissions path is published now so that, when a Construction cohort is real, nobody has to guess what happens first."
+        title="Know the requirements before you are asked to meet them."
+        lede="Purpose Academy is not enrolling a cohort today. The path is published now so that, when a Construction cohort is real, you already know what is required, what is not, and what has not been decided."
       >
         <Link className="button button-gold" to="/contact?as=learner&pathway=construction">
           Request information
@@ -40,6 +40,28 @@ export function AdmissionsPage() {
       </section>
 
       <section className="band band-stone">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="kicker">Admission requirements</p>
+            <h2>What we can say now, and what we will not invent.</h2>
+            <p>
+              Comparable colleges publish a diploma rule, an English benchmark, and a mature-learner path. Those
+              rules will exist here before enrolment opens. They do not exist as numbers yet, so they are not
+              printed as if they did.
+            </p>
+          </div>
+          <dl className="fact-list">
+            {REQUIREMENTS.map((row) => (
+              <div key={row.item}>
+                <dt>{row.item}</dt>
+                <dd>{row.now}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="band">
         <div className="wrap split">
           <div>
             <p className="kicker">What helps</p>

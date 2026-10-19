@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { usePage } from '../components/Chrome'
-import { LANGUAGES, PATHWAYS, STATES, STAGES, publicUrl } from '../site'
+import { AUDIENCES, FACTS, LANGUAGES, PATHWAYS, STATES, STAGES, publicUrl } from '../site'
 
 export function HomePage() {
   usePage('Purpose Academy — Calgary')
@@ -10,15 +10,16 @@ export function HomePage() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <p className="kicker kicker-light">Calgary · Workforce academy</p>
+            <p className="kicker kicker-light">Calgary · Construction pathway in development</p>
             <h1>
               <span>From</span>
               <span>understanding</span>
               <em>to employment.</em>
             </h1>
             <p className="lede lede-light">
-              Purpose Academy prepares adults for entry-level work by holding language, safety, digital skill,
-              and supervised practice in one pathway. Construction is the door we are building first.
+              You can know the work and still lose the chance at the English name of the part, the safety rule,
+              or the proof. Purpose Academy is being built to hold those together for entry-level construction.
+              A cohort is not open today.
             </p>
             <div className="hero-actions">
               <Link className="button button-gold" to="/programs/construction">
@@ -49,6 +50,27 @@ export function HomePage() {
           <p><strong>Six stages</strong> from entry to work</p>
           <p><strong>Three states</strong> learned, practised, competent</p>
           <p><strong>{LANGUAGES.length} languages</strong> beside English, for a time</p>
+        </div>
+      </section>
+
+      <section className="band band-tight">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="kicker">Before you enquire</p>
+            <h2>The facts that have to sit beside the promise.</h2>
+            <p>
+              A serious program page tells you the place, the status, the language, the assessment, and the
+              cost. Where Purpose Academy does not have an answer yet, the page says so.
+            </p>
+          </div>
+          <dl className="fact-list">
+            {FACTS.map((fact) => (
+              <div key={fact.term}>
+                <dt>{fact.term}</dt>
+                <dd>{fact.detail}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -210,6 +232,26 @@ export function HomePage() {
             <p className="context-figure">48,800</p>
             <p>workers Alberta construction is projected to need by 2035. A sector figure. Not an outcome of this academy.</p>
           </aside>
+        </div>
+      </section>
+
+      <section className="band band-stone">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="kicker">Who this is for</p>
+            <h2>Three people. Three different questions.</h2>
+          </div>
+          <div className="card-grid">
+            {AUDIENCES.map((item) => (
+              <article key={item.as}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <Link className="text-link" to={`/contact?as=${item.as}`}>
+                  Write as {item.as === 'learner' ? 'a learner' : item.as === 'employer' ? 'an employer' : 'a partner'}
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

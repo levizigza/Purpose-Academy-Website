@@ -22,8 +22,9 @@ export function AboutPage() {
             <p className="kicker">Mission</p>
             <h2>Practical, accessible workforce education.</h2>
             <p>
-              To help adults build and demonstrate the communication, safety, digital, technical, and workplace
-              competencies they need to pursue meaningful employment in Alberta.
+              Help adults build and demonstrate the communication, safety, digital, technical, and workplace
+              competencies they need to pursue entry-level employment in Alberta. The idea a person should be
+              able to repeat is simple: understanding becomes employment only when an instructor has seen the work.
             </p>
             <p className="kicker">Vision</p>
             <h2>A record someone else can trust.</h2>

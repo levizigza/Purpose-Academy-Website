@@ -96,6 +96,14 @@ export function ProgramPage() {
                 <dd>Calgary, Alberta</dd>
               </div>
               <div>
+                <dt>Language</dt>
+                <dd>English, with temporary support in six languages</dd>
+              </div>
+              <div>
+                <dt>Enrolment</dt>
+                <dd>{program.slug === 'construction' ? 'Not open. Information only.' : 'Not offered.'}</dd>
+              </div>
+              <div>
                 <dt>Status</dt>
                 <dd>{program.phase}</dd>
               </div>
