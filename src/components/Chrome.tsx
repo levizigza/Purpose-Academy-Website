@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState, type FocusEvent, type ReactNode } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { BRAND, PATHWAYS } from '../site'
+import { BRAND, PATHWAYS, publicUrl } from '../site'
 
 export function usePage(title: string) {
   const { pathname } = useLocation()
@@ -11,15 +11,7 @@ export function usePage(title: string) {
 }
 
 export function Mark({ className = '' }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
-      <rect width="64" height="64" rx="14" fill="#0b2f5c" />
-      <path d="M12 30.5 32 15l20 15.5V54H12V30.5z" fill="#e8a317" />
-      <path d="M27.2 54V39.2h9.6V54h-9.6z" fill="#0b2f5c" />
-      <path d="M18 23.4c1.1-6.6 6-10.2 14-10.2s12.9 3.6 14 10.2c.25.7-.15 1.4-1 1.4H19c-.85 0-1.25-.7-1-1.4z" fill="#f6d56a" />
-      <path d="M15.5 25.2h33c.5 1.4-.1 2.5-1.7 2.5H17.2c-1.6 0-2.2-1.1-1.7-2.5z" fill="#f3c431" />
-    </svg>
-  )
+  return <img className={className} src={publicUrl('brand/logo-mark.png')} alt="" />
 }
 
 export function Logo() {

@@ -183,7 +183,7 @@ a:hover { color: var(--gold-deep); }
   color: var(--ink);
 }
 
-.logo-mark { width: 46px; height: 46px; flex: none; }
+.logo-mark { width: auto; height: 52px; flex: none; display: block; }
 .logo-name { display: block; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; font-size: 1.12rem; }
 .logo-place { display: block; color: var(--ink-soft); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
 
@@ -682,7 +682,7 @@ a:hover { color: var(--gold-deep); }
 .site-footer .logo-name,
 .site-footer .logo-place { color: #f6f1e7; }
 .site-footer .logo-place { opacity: 0.7; }
-.site-footer .logo-mark { box-shadow: 0 0 0 1px rgba(243, 196, 49, 0.45); }
+.site-footer .logo-mark { height: 48px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr 0.9fr; gap: 1.6rem; }
 .footer-grid h2 { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: #f3c431; font-weight: 700; }
 .footer-grid ul { list-style: none; padding: 0; margin: 0; }
