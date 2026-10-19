@@ -205,7 +205,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
         <div className="wrap footer-base">
           <p>© {new Date().getFullYear()} Purpose Academy</p>
-          <p>Photography via Unsplash. Site photographs are not pictures of Purpose Academy cohorts.</p>
+          <p>Photographs are from Unsplash, the same royalty-free set used on the learning platform. They are not pictures of Purpose Academy cohorts.</p>
         </div>
       </footer>
     </>

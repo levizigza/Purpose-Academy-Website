@@ -35,7 +35,7 @@ export function HomePage() {
             </p>
           </div>
           <figure className="hero-figure">
-            <img src={publicUrl('media/site.jpg')} alt="A crew in hard hats stands above a concrete building under construction." />
+            <img src={publicUrl('media/site.jpg')} alt="Two workers in orange safety gear on a concrete deck among rebar and a cut-off saw." />
             <figcaption>
               <span>Supervised practice</span>
               An instructor watches the skill. A completed video does not count as proof.
@@ -190,7 +190,7 @@ export function HomePage() {
       <section className="band split-band">
         <div className="wrap split">
           <figure>
-            <img src={publicUrl('media/plans.jpg')} alt="Hands drawing a building plan on a wooden table, with a scale rule beside the sheet." />
+            <img src={publicUrl('media/plans.jpg')} alt="A crew in hard hats and high-visibility vests sets steel mesh into a foundation." />
           </figure>
           <div>
             <p className="kicker">Why one program first</p>

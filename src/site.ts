@@ -43,7 +43,7 @@ export const PATHWAYS: Pathway[] = [
     phase: 'In development',
     tone: 'construction',
     image: publicUrl('media/crew.jpg'),
-    imageAlt: 'Two workers in orange safety gear on a concrete deck among rebar and power tools.',
+    imageAlt: 'Two framers in hard hats pass a drill across a wood-frame wall.',
     summary:
       'Workplace English, safety, tools, measurement, and supervised practice for entry-level construction work in Alberta.',
     promise:
@@ -117,7 +117,7 @@ export const PATHWAYS: Pathway[] = [
     phase: 'After Construction',
     tone: 'community',
     image: publicUrl('media/community.jpg'),
-    imageAlt: 'A support worker sits at a table with two older women, knitting with them in a care setting.',
+    imageAlt: 'A support worker steadies a walker as an older person steps out of a car.',
     summary:
       'Client communication, notes, professional boundaries, and front-line community work. This program is not open.',
     promise:

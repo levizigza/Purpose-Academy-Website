@@ -16,7 +16,7 @@ export function AboutPage() {
       <section className="band split-band">
         <div className="wrap split">
           <figure>
-            <img src={publicUrl('media/calgary.jpg')} alt="A red-brick corner building in downtown Calgary, with towers behind it and snow along the street." />
+            <img src={publicUrl('media/calgary.jpg')} alt="The Calgary skyline and the Calgary Tower, seen across the Bow River from a bridge." />
             <figcaption>Calgary. A street address will be published when a facility is confirmed.</figcaption>
           </figure>
           <div>

@@ -311,7 +311,7 @@ a:hover { color: var(--gold-deep); }
   height: 100%;
   min-height: min(78vh, 760px);
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center 46%;
 }
 .hero-figure::after {
   content: "";
@@ -441,7 +441,7 @@ a:hover { color: var(--gold-deep); }
 .tone-community { border-top-color: var(--community); }
 
 .pathway-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center 42%; }
-.tone-community img { object-position: center 28%; }
+.tone-community img { object-position: center 42%; }
 .pathway-card div {
   display: flex;
   flex-direction: column;
