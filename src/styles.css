@@ -858,21 +858,102 @@ a:hover { color: var(--gold-deep); }
   color: var(--ink);
 }
 
+:root { --lift: 0; }
+.site-lift {
+  position: fixed;
+  inset: 0;
+  z-index: 18;
+  pointer-events: none;
+  overflow: hidden;
+}
+.site-lift-side {
+  position: absolute;
+  top: 4.6rem;
+  width: 4.5rem;
+  height: calc(100vh - 4.6rem);
+}
+.site-lift-side--left { left: 0.35rem; }
+.site-lift-side--right { right: 0.35rem; }
+.site-lift-crane {
+  display: block;
+  width: 4.5rem;
+  height: auto;
+  opacity: 0.92;
+}
+.site-lift-drop {
+  position: absolute;
+  top: 1.7rem;
+  left: 50%;
+  width: 2.6rem;
+  height: calc(100% - 7.5rem);
+  transform: translateX(-50%);
+}
+.site-lift-side--right .site-lift-drop { left: 42%; }
+.site-lift-cable {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: calc(var(--lift) * 100%);
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #d7dee6, rgba(215, 222, 230, 0.35));
+}
+.site-lift-beam {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--lift) * 100%);
+  width: 2.55rem;
+  height: 0.55rem;
+  margin-left: -1.275rem;
+  border-radius: 1px;
+  background: #c4a574;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  opacity: calc(1 - (var(--lift) * 0.15));
+  transition: opacity 0.2s linear;
+}
+html.lift-complete .site-lift-beam,
+html.lift-complete .site-lift-cable {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
 .site-footer { background: var(--navy-deep); color: rgba(246, 241, 231, 0.78); padding: 0 0 1.2rem; }
 .crew-band { background: #041526; overflow: hidden; line-height: 0; border-bottom: 1px solid rgba(232, 163, 23, 0.28); }
 .crew-scene { display: block; width: 100%; height: auto; }
 .crew-sun { fill: #e8a317; }
-.crew-load { animation: crew-hoist 4.8s ease-in-out infinite; }
-.crew-walk { animation: crew-walk 8s ease-in-out infinite alternate; }
-.crew-arm { transform-box: fill-box; transform-origin: 0% 40%; animation: crew-swing 1.05s ease-in-out infinite; }
-.crew-pass { animation: crew-pass 2.6s ease-in-out infinite; }
-@keyframes crew-hoist {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(18px); }
+.crew-receive { opacity: 0.18; transition: opacity 0.35s ease; }
+.crew-landed-beam { opacity: 0; transition: opacity 0.35s ease; }
+.crew-carried { opacity: 0.35; transition: opacity 0.35s ease; }
+.crew-stack-top { opacity: 0.45; transition: opacity 0.35s ease; }
+.crew-walk {
+  transform: translateX(calc(430px + var(--lift) * 90px));
+  transition: transform 0.05s linear;
+}
+.crew-arm {
+  transform-box: fill-box;
+  transform-origin: 0% 40%;
+  transform: rotate(calc(-34deg + var(--lift) * 44deg));
+}
+.crew-pass { transform: translateX(calc(var(--lift) * 10px)); }
+.crew-take,
+.crew-frame-work { opacity: calc(0.45 + var(--lift) * 0.55); }
+
+html.lift-complete .crew-receive { opacity: 1; }
+html.lift-complete .crew-landed-beam { opacity: 1; }
+html.lift-complete .crew-carried { opacity: 1; }
+html.lift-complete .crew-stack-top { opacity: 1; }
+html.lift-complete .crew-arm {
+  animation: crew-swing 1.05s ease-in-out infinite;
+}
+html.lift-complete .crew-pass {
+  animation: crew-pass 2.6s ease-in-out infinite;
+}
+html.lift-complete .crew-walk {
+  animation: crew-walk 8s ease-in-out infinite alternate;
 }
 @keyframes crew-walk {
-  from { transform: translateX(430px); }
-  to { transform: translateX(560px); }
+  from { transform: translateX(500px); }
+  to { transform: translateX(610px); }
 }
 @keyframes crew-swing {
   0%, 100% { transform: rotate(-34deg); }
@@ -968,6 +1049,7 @@ a:hover { color: var(--gold-deep); }
   .team { grid-template-columns: 1fr 1fr; }
   .form-row,
   .fact-list div { grid-template-columns: 1fr; gap: 0.25rem; }
+  .site-lift { display: none; }
 }
 
 @media (max-width: 640px) {
@@ -982,7 +1064,9 @@ a:hover { color: var(--gold-deep); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .button { transition: none; }
-  .crew-load, .crew-walk, .crew-arm, .crew-pass { animation: none; }
-  .crew-walk { transform: translateX(490px); }
+  .site-lift { display: none; }
+  .crew-walk, .crew-arm, .crew-pass { animation: none !important; transform: none; }
+  .crew-walk { transform: translateX(520px); }
+  .crew-receive, .crew-landed-beam, .crew-carried, .crew-stack-top { opacity: 1; }
   .hear-button.is-playing .hear-icon { animation: none; }
 }

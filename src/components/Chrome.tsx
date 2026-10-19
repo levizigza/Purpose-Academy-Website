@@ -2,6 +2,7 @@ import { useEffect, useId, useState, type ReactNode } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { BRAND, PATHWAYS, publicUrl } from '../site'
 import { SiteCrew } from './SiteCrew'
+import { SiteLift } from './SiteLift'
 
 export function usePage(title: string) {
   const { pathname } = useLocation()
@@ -53,6 +54,7 @@ export function Shell({ children }: { children: ReactNode }) {
       <a className="skip" href="#main">
         Skip to content
       </a>
+      <SiteLift />
       <header className="site-header">
         <div className="wrap header-inner">
           <Logo />
