@@ -8,13 +8,13 @@ export function HomePage() {
   return (
     <>
       <section className="hero">
-        <div className="wrap hero-grid">
+        <div className="hero-grid">
           <div className="hero-copy">
             <p className="kicker kicker-light">Calgary · Construction pathway in development</p>
             <h1>
               <span>From</span>
               <span>understanding</span>
-              <em>to employment.</em>
+              <em>to<br />employment.</em>
             </h1>
             <p className="lede lede-light">
               You can know the work and still lose the chance at the English name of the part, the safety rule,
