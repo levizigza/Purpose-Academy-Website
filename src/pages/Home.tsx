@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { usePage } from '../components/Chrome'
+import { LanguageBridge } from '../components/LanguageBridge'
 import { AUDIENCES, FACTS, LANGUAGES, PATHWAYS, STATES, STAGES, publicUrl } from '../site'
 
 export function HomePage() {
@@ -96,49 +97,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="band band-navy bridge">
-        <div className="wrap">
-          <div className="section-head section-head-light">
-            <p className="kicker kicker-light">Occupational language</p>
-            <h2>Another language can explain the lesson. English is what the job requires.</h2>
-            <p>
-              A lesson may start with a picture, the English word, and a meaning in a language the learner
-              already knows. When the learner can use the English, the translation is removed. The assessment
-              stays in English.
-            </p>
-          </div>
-          <ol className="bridge-steps">
-            <li>
-              <span>01</span>
-              <h3>See and hear</h3>
-              <p className="word">Hammer</p>
-              <p className="gloss">Martillo · a tool used to drive or remove nails.</p>
-            </li>
-            <li>
-              <span>02</span>
-              <h3>English only</h3>
-              <p className="word">Hammer</p>
-              <p className="gloss">The picture remains. The translation does not.</p>
-            </li>
-            <li>
-              <span>03</span>
-              <h3>Use it</h3>
-              <p className="word sentence">Bring the hammer.</p>
-              <p className="gloss">A sentence a site would actually say.</p>
-            </li>
-            <li>
-              <span>04</span>
-              <h3>Show it</h3>
-              <p className="word">Verified</p>
-              <p className="gloss">An instructor watches the skill on the tool.</p>
-            </li>
-          </ol>
-          <p className="bridge-note">
-            Support languages: {LANGUAGES.join(', ')}. A learner who already knows hammer, drill, and stud is
-            not kept on those words. Header, flashing, and joist are where the extra pictures belong.
-          </p>
-        </div>
-      </section>
+      <LanguageBridge />
 
       <section className="band">
         <div className="wrap">

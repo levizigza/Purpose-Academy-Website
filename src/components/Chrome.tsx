@@ -202,7 +202,10 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
         <div className="wrap footer-base">
           <p>© {new Date().getFullYear()} Purpose Academy</p>
-          <p>Photographs are from Unsplash, the same royalty-free set used on the learning platform. They show the work. They are not pictures of our students.</p>
+          <p>
+            Photographs and occupational-language audio are from the learning platform: Unsplash images and
+            Microsoft Edge neural speech. The photographs show the work. They are not pictures of our students.
+          </p>
         </div>
       </footer>
     </>
