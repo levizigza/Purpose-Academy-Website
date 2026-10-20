@@ -25,6 +25,10 @@ export function SiteCrew() {
         <rect y="112" width="1400" height="20" fill="#071e3d" />
         <path d="M0 112 H1400" stroke="rgba(232,163,23,0.55)" strokeWidth="1.5" />
 
+        {/* Spine stubs — continue the page-side columns into the crew band */}
+        <rect className="crew-spine crew-spine--left" x="66" y="18" width="8" height="94" rx="1" fill="#9eb0c4" />
+        <rect className="crew-spine crew-spine--right" x="1326" y="18" width="8" height="94" rx="1" fill="#9eb0c4" />
+
         {/* Left landing crane — receives the descending left beam */}
         <g fill="none" stroke="#d7dee6" strokeWidth="2.5">
           <path d="M70 112 V22" />
@@ -34,6 +38,7 @@ export function SiteCrew() {
         <g className="crew-receive crew-receive--left">
           <path d="M186 36 V78" fill="none" stroke="#d7dee6" strokeWidth="2" />
           <rect className="crew-landed-beam" x="164" y="78" width="44" height="9" rx="1" fill="#c4a574" />
+          <rect className="crew-floor-plate" x="52" y="100" width="36" height="7" rx="1" fill="#c4a574" />
         </g>
 
         {/* Right landing crane */}
@@ -45,6 +50,7 @@ export function SiteCrew() {
         <g className="crew-receive crew-receive--right">
           <path d="M1194 36 V78" fill="none" stroke="#d7dee6" strokeWidth="2" />
           <rect className="crew-landed-beam" x="1172" y="78" width="44" height="9" rx="1" fill="#c4a574" />
+          <rect className="crew-floor-plate" x="1312" y="100" width="36" height="7" rx="1" fill="#c4a574" />
         </g>
 
         <g className="crew-take" transform="translate(280 108)">

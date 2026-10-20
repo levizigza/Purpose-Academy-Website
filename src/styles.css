@@ -1135,6 +1135,8 @@ a:hover { color: var(--gold-deep); }
 }
 
 :root { --lift: 0; }
+
+/* Fixed side cranes + growing steel spines that build with the page scroll */
 .site-lift {
   position: fixed;
   inset: 0;
@@ -1145,8 +1147,8 @@ a:hover { color: var(--gold-deep); }
 .site-lift-side {
   position: absolute;
   top: 4.6rem;
+  bottom: 0;
   width: 4.5rem;
-  height: calc(100vh - 4.6rem);
 }
 .site-lift-side--left { left: 0.35rem; }
 .site-lift-side--right { right: 0.35rem; }
@@ -1159,12 +1161,57 @@ a:hover { color: var(--gold-deep); }
 .site-lift-drop {
   position: absolute;
   top: 1.7rem;
+  bottom: 0.35rem;
   left: 50%;
-  width: 2.6rem;
-  height: calc(100% - 7.5rem);
+  width: 2.8rem;
+  height: auto;
   transform: translateX(-50%);
 }
 .site-lift-side--right .site-lift-drop { left: 42%; }
+
+/* Growing I-beam column — structure that stays; floors lock in as beam passes */
+.site-lift-spine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.site-lift-column {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.42rem;
+  height: calc(var(--lift) * 100%);
+  margin-left: -0.21rem;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px),
+    linear-gradient(180deg, #d7dee6 0%, #9eb0c4 55%, #7a8fa3 100%);
+  box-shadow:
+    -0.55rem 0 0 -0.18rem #b8c4d0,
+    0.55rem 0 0 -0.18rem #b8c4d0,
+    inset 0 0 0 1px rgba(7, 30, 61, 0.12);
+  opacity: 0.88;
+  transition: height 0.05s linear;
+}
+.site-lift-floor {
+  --set: clamp(0, calc((var(--lift) - var(--floor)) * 22), 1);
+  position: absolute;
+  left: 50%;
+  top: calc(var(--floor) * 100%);
+  width: 2.55rem;
+  height: 0.42rem;
+  margin-left: -1.275rem;
+  margin-top: -0.21rem;
+  border-radius: 1px;
+  background:
+    linear-gradient(180deg, #d4b896 0%, #c4a574 48%, #9a7d4e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 1px 0 rgba(0, 0, 0, 0.28);
+  opacity: var(--set);
+  transform: scaleX(calc(0.4 + var(--set) * 0.6));
+  transition: opacity 0.28s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .site-lift-cable {
   position: absolute;
   left: 50%;
@@ -1172,7 +1219,23 @@ a:hover { color: var(--gold-deep); }
   width: 2px;
   height: calc(var(--lift) * 100%);
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #d7dee6, rgba(215, 222, 230, 0.35));
+  background: linear-gradient(180deg, #e8eef3, rgba(215, 222, 230, 0.4));
+  z-index: 2;
+  transition: height 0.05s linear, opacity 0.45s ease;
+}
+.site-lift-hook {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--lift) * 100%);
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: -0.275rem;
+  margin-top: -0.15rem;
+  border: 2px solid #d7dee6;
+  border-radius: 50%;
+  background: #041526;
+  z-index: 3;
+  transition: top 0.05s linear, opacity 0.45s ease;
 }
 .site-lift-beam {
   position: absolute;
@@ -1182,25 +1245,55 @@ a:hover { color: var(--gold-deep); }
   height: 0.55rem;
   margin-left: -1.275rem;
   border-radius: 1px;
-  background: #c4a574;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  opacity: calc(1 - (var(--lift) * 0.15));
-  transition: opacity 0.2s linear;
+  background:
+    linear-gradient(180deg, #d4b896 0%, #c4a574 48%, #9a7d4e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 1px 0 rgba(0, 0, 0, 0.28);
+  z-index: 3;
+  transition: top 0.05s linear, opacity 0.45s ease, transform 0.45s ease;
 }
-html.lift-complete .site-lift-beam,
+
+/*
+  Landing: column completes, live beam docks as the bottom plate and stays.
+  Crew receives the working load — structure never goes empty.
+*/
+html.lift-complete .site-lift-column {
+  height: 100%;
+}
 html.lift-complete .site-lift-cable {
+  height: calc(100% - 0.55rem);
+  opacity: 0.2;
+}
+html.lift-complete .site-lift-hook {
+  top: calc(100% - 0.55rem);
   opacity: 0;
-  transition: opacity 0.35s ease;
+}
+html.lift-complete .site-lift-beam {
+  top: 100%;
+  margin-top: -0.55rem;
+  opacity: 1;
+  transform: none;
 }
 
 .site-footer { background: var(--navy-deep); color: rgba(246, 241, 231, 0.78); padding: 0 0 1.2rem; }
 .crew-band { background: #041526; overflow: hidden; line-height: 0; border-bottom: 1px solid rgba(232, 163, 23, 0.28); }
 .crew-scene { display: block; width: 100%; height: auto; }
 .crew-sun { fill: #e8a317; }
-.crew-receive { opacity: 0.18; transition: opacity 0.35s ease; }
-.crew-landed-beam { opacity: 0; transition: opacity 0.35s ease; }
-.crew-carried { opacity: 0.35; transition: opacity 0.35s ease; }
-.crew-stack-top { opacity: 0.45; transition: opacity 0.35s ease; }
+.crew-spine {
+  transform-box: fill-box;
+  transform-origin: top center;
+  transform: scaleY(calc(0.2 + var(--lift) * 0.8));
+  opacity: calc(0.25 + var(--lift) * 0.75);
+}
+.crew-receive { opacity: calc(0.12 + var(--lift) * 0.55); transition: opacity 0.25s ease; }
+.crew-landed-beam,
+.crew-floor-plate {
+  opacity: calc(var(--lift) * 0.35);
+  transition: opacity 0.25s ease;
+}
+.crew-carried { opacity: calc(0.2 + var(--lift) * 0.55); transition: opacity 0.25s ease; }
+.crew-stack-top { opacity: calc(0.25 + var(--lift) * 0.5); transition: opacity 0.25s ease; }
 .crew-walk {
   transform: translateX(calc(430px + var(--lift) * 90px));
   transition: transform 0.05s linear;
@@ -1214,8 +1307,17 @@ html.lift-complete .site-lift-cable {
 .crew-take,
 .crew-frame-work { opacity: calc(0.45 + var(--lift) * 0.55); }
 
+/* Soft handoff: as the live beam docks, crew receive takes the load */
+html.lift-complete .crew-spine {
+  transform: scaleY(1);
+  opacity: 1;
+}
 html.lift-complete .crew-receive { opacity: 1; }
-html.lift-complete .crew-landed-beam { opacity: 1; }
+html.lift-complete .crew-landed-beam,
+html.lift-complete .crew-floor-plate {
+  opacity: 1;
+  animation: crew-beam-settle 0.7s ease-out both;
+}
 html.lift-complete .crew-carried { opacity: 1; }
 html.lift-complete .crew-stack-top { opacity: 1; }
 html.lift-complete .crew-arm {
@@ -1226,6 +1328,10 @@ html.lift-complete .crew-pass {
 }
 html.lift-complete .crew-walk {
   animation: crew-walk 8s ease-in-out infinite alternate;
+}
+@keyframes crew-beam-settle {
+  from { transform: translateY(-10px); opacity: 0.4; }
+  to { transform: translateY(0); opacity: 1; }
 }
 @keyframes crew-walk {
   from { transform: translateX(500px); }
@@ -1343,7 +1449,8 @@ html.lift-complete .crew-walk {
   .site-lift { display: none; }
   .crew-walk, .crew-arm, .crew-pass { animation: none !important; transform: none; }
   .crew-walk { transform: translateX(520px); }
-  .crew-receive, .crew-landed-beam, .crew-carried, .crew-stack-top { opacity: 1; }
+  .crew-receive, .crew-landed-beam, .crew-floor-plate, .crew-carried, .crew-stack-top, .crew-spine { opacity: 1; }
+  .crew-spine { transform: scaleY(1); }
   .hear-button.is-playing .hear-icon { animation: none; }
   .bridge-video { animation: none; }
 }
