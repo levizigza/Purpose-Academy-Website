@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { LANGUAGES, publicUrl } from '../site'
+import { HammerUse } from './HammerUse'
 
 const CLIPS = {
   hammerEn: publicUrl('audio/en-a8cdcac2ee6db3bf.mp3'),
   hammerAm: publicUrl('audio/am-c3f00ee3713fdff1.mp3'),
-  sentenceEn: publicUrl('audio/en-2a2d5dd7b7c83be6.mp3'),
+  sentenceEn: publicUrl('audio/en-c05d27e13d3e4ae5.mp3'),
 } as const
 
 type Clip = keyof typeof CLIPS
@@ -83,15 +84,15 @@ export function LanguageBridge() {
           <p className="kicker kicker-light">Occupational language</p>
           <h2>Another language can explain the lesson. English is what the job requires.</h2>
           <p>
-            A lesson starts with a picture, the English word, and a meaning in a language the learner already
-            knows. Hear the word, then drop the translation. The assessment stays in English.
+            A lesson starts with a picture and two languages, moves into the action English names, then shows the
+            same work on a real site. The assessment stays in English.
           </p>
         </div>
 
         <ol className="bridge-steps">
           <li>
             <span>01</span>
-            <h3>See and hear</h3>
+            <h3>Two languages</h3>
             <figure className="bridge-photo">
               <img
                 src={publicUrl('media/hammer.jpg')}
@@ -108,37 +109,12 @@ export function LanguageBridge() {
 
           <li>
             <span>02</span>
-            <h3>English only</h3>
-            <figure className="bridge-photo">
-              <img
-                src={publicUrl('media/hammer.jpg')}
-                alt="A claw hammer on a wooden work surface."
-              />
-            </figure>
-            <p className="word">Hammer</p>
-            <p className="gloss">The picture remains. The translation comes off.</p>
-            <div className="hear-row">
-              <HearButton clip="hammerEn" label="Hear English" active={playing === 'hammerEn'} onPlay={play} />
-            </div>
-          </li>
-
-          <li>
-            <span>03</span>
             <h3>Use it</h3>
-            <figure className="bridge-photo bridge-photo-video">
-              <video
-                className="bridge-video"
-                src={publicUrl('media/hammer-use.mp4')}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="A carpenter uses a hammer to drive and remove nails."
-              />
+            <figure className="bridge-photo bridge-photo-scene">
+              <HammerUse />
             </figure>
-            <p className="word sentence">Pass me the hammer.</p>
-            <p className="gloss">A sentence a site would actually say.</p>
+            <p className="word sentence">Use the hammer.</p>
+            <p className="gloss">The English names the action on the tool.</p>
             <div className="hear-row">
               <HearButton
                 clip="sentenceEn"
@@ -150,25 +126,31 @@ export function LanguageBridge() {
           </li>
 
           <li>
-            <span>04</span>
+            <span>03</span>
             <h3>Show it</h3>
-            <figure className="bridge-photo">
-              <img
-                src={publicUrl('media/practice.jpg')}
-                alt="Workers in hard hats and high-visibility vests on a supervised site."
+            <figure className="bridge-photo bridge-photo-video">
+              <video
+                className="bridge-video"
+                src={publicUrl('media/hammer-drive.mp4')}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="A carpenter drives a nail with a hammer."
               />
             </figure>
             <p className="word">
               <span className="beam-word">Verified</span>
             </p>
-            <p className="gloss">An instructor watches the skill on the tool and signs the record.</p>
+            <p className="gloss">The same action on real work. An instructor watches and signs.</p>
           </li>
         </ol>
 
         <p className="bridge-note">
           Support languages: {LANGUAGES.join(', ')}. The clips are the same Microsoft Edge neural speech used on
           the learning platform. A learner who already knows hammer, drill, and stud is not kept on those words.
-          Header, flashing, and joist are where the extra pictures belong. The “Use it” clip is Mixkit stock
+          Header, flashing, and joist are where the extra pictures belong. The “Show it” clip is Mixkit stock
           video (royalty-free).
         </p>
       </div>

@@ -603,7 +603,7 @@ a:hover { color: var(--gold-deep); }
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -724,6 +724,54 @@ a:hover { color: var(--gold-deep); }
 }
 .bridge-photo-quiet {
   opacity: 0.42;
+}
+.bridge-photo-scene {
+  background: #071e3d;
+  display: flex;
+  align-items: stretch;
+}
+.bridge-photo-scene .hammer-use {
+  width: 100%;
+  height: 100%;
+}
+.hammer-use {
+  width: 100%;
+  height: 100%;
+}
+.hammer-use-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hammer-use-arm {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: hammer-swing 1.35s ease-in-out infinite;
+}
+.hammer-use-tool {
+  transform-box: fill-box;
+  transform-origin: 30% 85%;
+  animation: hammer-strike 1.35s ease-in-out infinite;
+}
+.hammer-use-nail {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: nail-sink 1.35s ease-in-out infinite;
+}
+@keyframes hammer-swing {
+  0%, 12% { transform: rotate(-38deg); }
+  42% { transform: rotate(18deg); }
+  58%, 100% { transform: rotate(-38deg); }
+}
+@keyframes hammer-strike {
+  0%, 18% { transform: rotate(-8deg); }
+  42% { transform: rotate(22deg); }
+  58%, 100% { transform: rotate(-8deg); }
+}
+@keyframes nail-sink {
+  0%, 30% { transform: translateY(0); }
+  48% { transform: translateY(6px); }
+  70%, 100% { transform: translateY(4px); }
 }
 .bridge-photo-video {
   background: #041526;
@@ -1453,4 +1501,10 @@ html.lift-complete .crew-walk {
   .crew-spine { transform: scaleY(1); }
   .hear-button.is-playing .hear-icon { animation: none; }
   .bridge-video { animation: none; }
+  .hammer-use-arm,
+  .hammer-use-tool,
+  .hammer-use-nail { animation: none !important; }
+  .hammer-use-arm { transform: rotate(8deg); }
+  .hammer-use-tool { transform: rotate(10deg); }
+  .hammer-use-nail { transform: translateY(4px); }
 }
