@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { HammerPass } from './HammerPass'
 import { LANGUAGES, publicUrl } from '../site'
 
 const CLIPS = {
   hammerEn: publicUrl('audio/en-a8cdcac2ee6db3bf.mp3'),
-  hammerEs: publicUrl('audio/es-7721c6a185a188b3.mp3'),
+  hammerAm: publicUrl('audio/am-c3f00ee3713fdff1.mp3'),
   sentenceEn: publicUrl('audio/en-2a2d5dd7b7c83be6.mp3'),
 } as const
 
@@ -99,10 +100,10 @@ export function LanguageBridge() {
               />
             </figure>
             <p className="word">Hammer</p>
-            <p className="gloss">Martillo · a tool used to drive or remove nails.</p>
+            <p className="gloss">መዶሻ · a tool used to drive or remove nails.</p>
             <div className="hear-row">
               <HearButton clip="hammerEn" label="Hear English" active={playing === 'hammerEn'} onPlay={play} />
-              <HearButton clip="hammerEs" label="Hear Spanish" active={playing === 'hammerEs'} onPlay={play} />
+              <HearButton clip="hammerAm" label="Hear Amharic" active={playing === 'hammerAm'} onPlay={play} />
             </div>
           </li>
 
@@ -125,11 +126,8 @@ export function LanguageBridge() {
           <li>
             <span>03</span>
             <h3>Use it</h3>
-            <figure className="bridge-photo bridge-photo-quiet">
-              <img
-                src={publicUrl('media/hammer.jpg')}
-                alt=""
-              />
+            <figure className="bridge-photo bridge-photo-scene">
+              <HammerPass />
             </figure>
             <p className="word sentence">Pass me the hammer.</p>
             <p className="gloss">A sentence a site would actually say.</p>
