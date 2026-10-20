@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { HammerPass } from './HammerPass'
 import { LANGUAGES, publicUrl } from '../site'
 
 const CLIPS = {
@@ -126,8 +125,17 @@ export function LanguageBridge() {
           <li>
             <span>03</span>
             <h3>Use it</h3>
-            <figure className="bridge-photo bridge-photo-scene">
-              <HammerPass />
+            <figure className="bridge-photo bridge-photo-video">
+              <video
+                className="bridge-video"
+                src={publicUrl('media/hammer-use.mp4')}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="A carpenter uses a hammer to drive and remove nails."
+              />
             </figure>
             <p className="word sentence">Pass me the hammer.</p>
             <p className="gloss">A sentence a site would actually say.</p>
@@ -146,8 +154,8 @@ export function LanguageBridge() {
             <h3>Show it</h3>
             <figure className="bridge-photo">
               <img
-                src={publicUrl('media/hammer.jpg')}
-                alt="A claw hammer ready for supervised practice."
+                src={publicUrl('media/practice.jpg')}
+                alt="Workers in hard hats and high-visibility vests on a supervised site."
               />
             </figure>
             <p className="word">
@@ -160,7 +168,8 @@ export function LanguageBridge() {
         <p className="bridge-note">
           Support languages: {LANGUAGES.join(', ')}. The clips are the same Microsoft Edge neural speech used on
           the learning platform. A learner who already knows hammer, drill, and stud is not kept on those words.
-          Header, flashing, and joist are where the extra pictures belong.
+          Header, flashing, and joist are where the extra pictures belong. The “Use it” clip is Mixkit stock
+          video (royalty-free).
         </p>
       </div>
     </section>

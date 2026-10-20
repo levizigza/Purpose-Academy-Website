@@ -143,7 +143,8 @@ export function Shell({ children }: { children: ReactNode }) {
           <p>© {new Date().getFullYear()} Purpose Academy</p>
           <p>
             Photographs and occupational-language audio are from the learning platform: Unsplash images and
-            Microsoft Edge neural speech. The photographs show the work. They are not pictures of our students.
+            Microsoft Edge neural speech. The “Use it” clip is Mixkit stock video. The photographs show the work.
+            They are not pictures of our students.
           </p>
         </div>
       </footer>

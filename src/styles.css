@@ -725,54 +725,15 @@ a:hover { color: var(--gold-deep); }
 .bridge-photo-quiet {
   opacity: 0.42;
 }
-.bridge-photo-scene {
-  background: #071e3d;
-  display: flex;
-  align-items: stretch;
+.bridge-photo-video {
+  background: #041526;
 }
-.bridge-photo-scene .hammer-pass {
-  width: 100%;
-  height: 100%;
-}
-.hammer-pass {
-  width: 100%;
-  height: 100%;
-}
-.hammer-pass-scene {
+.bridge-video {
   display: block;
   width: 100%;
   height: 100%;
-}
-.hammer-pass-arm--give {
-  transform-box: fill-box;
-  transform-origin: 0% 50%;
-  animation: hammer-offer 2.8s ease-in-out infinite;
-}
-.hammer-pass-arm--take {
-  transform-box: fill-box;
-  transform-origin: 100% 50%;
-  animation: hammer-reach 2.8s ease-in-out infinite;
-}
-.hammer-pass-tool {
-  transform-box: fill-box;
-  transform-origin: 20% 80%;
-  animation: hammer-handoff 2.8s ease-in-out infinite;
-}
-@keyframes hammer-offer {
-  0%, 12% { transform: rotate(-8deg) translateX(0); }
-  38%, 52% { transform: rotate(6deg) translateX(18px); }
-  72%, 100% { transform: rotate(-8deg) translateX(0); }
-}
-@keyframes hammer-reach {
-  0%, 18% { transform: rotate(10deg) translateX(0); }
-  42%, 58% { transform: rotate(-4deg) translateX(-16px); }
-  78%, 100% { transform: rotate(10deg) translateX(0); }
-}
-@keyframes hammer-handoff {
-  0%, 30% { opacity: 1; transform: translateX(0) rotate(0deg); }
-  48% { opacity: 1; transform: translateX(36px) rotate(-12deg); }
-  58% { opacity: 0.15; transform: translateX(52px) rotate(-18deg); }
-  68%, 100% { opacity: 1; transform: translateX(0) rotate(0deg); }
+  object-fit: cover;
+  object-position: center;
 }
 .hear-row {
   display: flex;
@@ -1384,10 +1345,5 @@ html.lift-complete .crew-walk {
   .crew-walk { transform: translateX(520px); }
   .crew-receive, .crew-landed-beam, .crew-carried, .crew-stack-top { opacity: 1; }
   .hear-button.is-playing .hear-icon { animation: none; }
-  .hammer-pass-arm--give,
-  .hammer-pass-arm--take,
-  .hammer-pass-tool { animation: none !important; }
-  .hammer-pass-arm--give { transform: rotate(4deg) translateX(12px); }
-  .hammer-pass-arm--take { transform: rotate(-2deg) translateX(-10px); }
-  .hammer-pass-tool { opacity: 1; transform: translateX(28px) rotate(-8deg); }
+  .bridge-video { animation: none; }
 }
