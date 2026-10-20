@@ -56,20 +56,33 @@ export function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <p className="kicker">People</p>
-            <h2>The people of the school.</h2>
+            <h2>Founding builders</h2>
             <p>
-              The people responsible for Purpose Academy in Calgary.
+              The people building Purpose Academy. We name them now with honesty: full roles, bios, and portraits
+              will be published as the school grows — we will not invent titles to fill a page.
             </p>
           </div>
-          <ul className="team">
-            {TEAM.map((person) => (
-              <li key={person.name}>
-                <span aria-hidden="true">{person.name.split(' ').map((part) => part[0]).join('')}</span>
-                <strong>{person.name}</strong>
-                <em>{person.role}</em>
-              </li>
-            ))}
-          </ul>
+          <div className="team-grid">
+            {TEAM.map((person) => {
+              const initials = person.name
+                .split(' ')
+                .map((part) => part[0])
+                .join('')
+              return (
+                <article key={person.name} className="team-card site-crate">
+                  <div className="team-photo" aria-hidden="true">
+                    <span className="team-photo-placeholder">{initials}</span>
+                    <span className="team-photo-label">Portrait soon</span>
+                  </div>
+                  <div className="team-info">
+                    <h3>{person.name}</h3>
+                    <p className="team-role">{person.role}</p>
+                    <p className="team-bio">{person.focus}</p>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
           <p className="section-link">
             <Link to="/contact?as=instructor">Instructors: write to the school</Link>
           </p>

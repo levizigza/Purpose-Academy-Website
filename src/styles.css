@@ -621,8 +621,7 @@ a:hover { color: var(--gold-deep); }
 .admit-steps span,
 .step-list span,
 .role-grid span,
-.measure-list span,
-.team span {
+.measure-list span {
   display: block;
   font-family: var(--serif);
   color: var(--gold-deep);
@@ -1018,11 +1017,112 @@ a:hover { color: var(--gold-deep); }
 .role-grid span,
 .measure-list span { font-size: 1.3rem; margin-bottom: 0.45rem; }
 
-.team { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.4rem; }
-.team li { background: transparent; border: 0; border-top: 1px solid var(--line); padding: 0.9rem 0 0; }
-.team span { display: none; }
-.team strong { display: block; font-family: var(--serif); font-size: 1.3rem; font-weight: 560; letter-spacing: -0.03em; }
-.team em { color: var(--ink-soft); font-style: normal; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+/* Founding builders — same boxed cards as the learning platform About page */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.1rem;
+  margin: 0;
+}
+.site-crate {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #8a6a3a;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 230, 0.55), transparent 38%),
+    repeating-linear-gradient(
+      90deg,
+      #f3e4c4 0 14px,
+      #e8d4a8 14px 28px
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -8px 18px rgba(90, 60, 20, 0.08),
+    0 14px 32px rgba(7, 30, 61, 0.1);
+}
+.site-crate::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--navy) 0 10px, var(--gold) 10px 20px);
+  background-size: 28px 10px;
+  pointer-events: none;
+}
+.site-crate::after {
+  content: "";
+  position: absolute;
+  inset: 10px 8px 8px;
+  border: 1px solid rgba(138, 106, 58, 0.35);
+  pointer-events: none;
+}
+.team-card {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  padding: 1.45rem 1.15rem 1.2rem;
+}
+.team-card > * { position: relative; z-index: 1; }
+.team-photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 168px;
+  margin-inline: auto;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(11, 47, 92, 0.08), rgba(232, 163, 23, 0.12)),
+    #e8eef6;
+  border: 1px solid rgba(11, 47, 92, 0.12);
+  display: grid;
+  place-items: center;
+}
+.team-photo-placeholder {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  opacity: 0.55;
+}
+.team-photo-label {
+  position: absolute;
+  left: 0.55rem;
+  bottom: 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.88);
+  padding: 0.2rem 0.4rem;
+}
+.team-info {
+  display: grid;
+  gap: 0.28rem;
+  text-align: center;
+}
+.team-info h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--navy);
+}
+.team-role {
+  margin: 0;
+  font-weight: 700;
+  color: var(--gold-deep);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.team-bio {
+  margin: 0.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
 
 .measure-list { display: grid; gap: 0; border-bottom: 1px solid var(--line); }
 .measure-list article {
@@ -1243,7 +1343,7 @@ html.lift-complete .crew-walk {
   .diagram-block,
   .footer-grid,
   .program-row,
-  .team,
+  .team-grid,
   .tool-strip,
   .measure-list article {
     grid-template-columns: 1fr;
@@ -1261,7 +1361,7 @@ html.lift-complete .crew-walk {
   .glance { position: static; }
   .admit-steps li { grid-template-columns: 1fr; }
   .role-grid h2 { min-height: 0; }
-  .team { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
   .form-row,
   .fact-list div { grid-template-columns: 1fr; gap: 0.25rem; }
   .site-lift { display: none; }
@@ -1270,7 +1370,7 @@ html.lift-complete .crew-walk {
 @media (max-width: 640px) {
   .wrap { width: min(var(--max), calc(100% - 1.4rem)); }
   .measure-grid,
-  .team { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
   .hero { padding-top: 0; }
   .band { padding: 3.2rem 0; }
   h1 { font-size: clamp(2.7rem, 12vw, 3.6rem); }

@@ -229,11 +229,31 @@ export const VALUES = [
 ] as const
 
 export const TEAM = [
-  { name: 'Saba Teklu', role: 'Leadership' },
-  { name: 'Kinfe Desta', role: 'Leadership' },
-  { name: 'ChuChu Asemelash', role: 'Leadership' },
-  { name: 'Yonas Tesfagabr', role: 'Leadership' },
-  { name: 'Levi Zigza', role: 'Leadership' },
+  {
+    name: 'Saba Teklu',
+    role: 'Founding builder',
+    focus: 'Role, portrait, and bio will be published as the school grows.',
+  },
+  {
+    name: 'Kinfe Desta',
+    role: 'Founding builder',
+    focus: 'Role, portrait, and bio will be published as the school grows.',
+  },
+  {
+    name: 'ChuChu Asemelash',
+    role: 'Founding builder',
+    focus: 'Role, portrait, and bio will be published as the school grows.',
+  },
+  {
+    name: 'Yonas Tesfagabr',
+    role: 'Founding builder',
+    focus: 'Role, portrait, and bio will be published as the school grows.',
+  },
+  {
+    name: 'Levi Zigza',
+    role: 'Founding builder',
+    focus: 'Role, portrait, and bio will be published as the school grows.',
+  },
 ] as const
 
 export const AUDIENCES = [
