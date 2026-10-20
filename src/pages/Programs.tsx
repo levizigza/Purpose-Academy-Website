@@ -59,6 +59,7 @@ export function ProgramPage() {
         kicker={program.status}
         title={program.name}
         lede={program.promise}
+        mark={program.tone === 'construction' ? 'beam' : undefined}
         crumbs={[
           { to: '/', label: 'Home' },
           { to: '/programs', label: 'Programs' },

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { usePage } from '../components/Chrome'
 import { LanguageBridge } from '../components/LanguageBridge'
+import { BeamWord } from '../components/SiteMarks'
 import { AUDIENCES, FACTS, LANGUAGES, PATHWAYS, STATES, STAGES, publicUrl } from '../site'
 
 export function HomePage() {
@@ -133,7 +134,9 @@ export function HomePage() {
             {STATES.map((state, index) => (
               <li key={state.name}>
                 <span>0{index + 1}</span>
-                <h3>{state.name}</h3>
+                <h3>
+                  <BeamWord>{state.name}</BeamWord>
+                </h3>
                 <p>{state.text}</p>
               </li>
             ))}

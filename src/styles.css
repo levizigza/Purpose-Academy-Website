@@ -9,6 +9,10 @@
   --line: #d5cdbf;
   --gold: #e8a317;
   --gold-deep: #7c520a;
+  --steel: #8b96a3;
+  --steel-deep: #5a646e;
+  --steel-shine: #d5dbe2;
+  --safety: #e07012;
   --construction: #e8a317;
   --logistics: #2f6bb0;
   --community: #3d7a34;
@@ -91,6 +95,9 @@ a:hover { color: var(--gold-deep); }
 }
 
 .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   margin: 0 0 0.8rem;
   font-size: 0.78rem;
   font-weight: 700;
@@ -99,7 +106,92 @@ a:hover { color: var(--gold-deep); }
   color: var(--gold-deep);
 }
 
+/* Mini I-beam cross-section before every section label */
+.kicker::before {
+  content: "";
+  width: 0.52rem;
+  height: 0.92em;
+  flex: 0 0 auto;
+  background:
+    linear-gradient(var(--steel-shine), var(--steel)) top / 100% 18% no-repeat,
+    linear-gradient(var(--steel-shine), var(--steel)) bottom / 100% 18% no-repeat,
+    linear-gradient(var(--steel), var(--steel-deep)) center / 38% 100% no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(7, 30, 61, 0.18);
+}
+
 .kicker-light { color: #f3c431; }
+.kicker-light::before {
+  background:
+    linear-gradient(#f3c431, #c9941a) top / 100% 18% no-repeat,
+    linear-gradient(#f3c431, #c9941a) bottom / 100% 18% no-repeat,
+    linear-gradient(#e8a317, #a87310) center / 38% 100% no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Traffic cone replaces the I-beam on safety-related labels only */
+.kicker-cone::before {
+  width: 0;
+  height: 0;
+  border-left: 0.34rem solid transparent;
+  border-right: 0.34rem solid transparent;
+  border-bottom: 0.62rem solid var(--safety);
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(0 0.55rem 0 var(--navy-deep));
+}
+
+.kicker-beam {
+  padding: 0;
+  gap: 0;
+}
+.kicker-beam::before { display: none; }
+
+.beam-word {
+  display: inline-block;
+  padding: 0.28em 0.62em 0.32em;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 2px, transparent 2px),
+    linear-gradient(180deg, var(--steel-shine) 0%, var(--steel) 42%, var(--steel-deep) 100%);
+  color: #f7f3ea;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 0.92em;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: none;
+  border-radius: 1px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.28),
+    0 1px 0 rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+}
+.beam-word-sm {
+  padding: 0.2em 0.5em 0.24em;
+  font-size: 0.78rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.heading-cone {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.heading-cone::before {
+  content: "";
+  width: 0;
+  height: 0;
+  flex: 0 0 auto;
+  border-left: 0.42rem solid transparent;
+  border-right: 0.42rem solid transparent;
+  border-bottom: 0.76rem solid var(--safety);
+  filter: drop-shadow(0 0.65rem 0 var(--navy-deep));
+  translate: 0 -0.15rem;
+}
 
 .lede {
   font-size: clamp(1.12rem, 1.6vw, 1.32rem);
@@ -346,9 +438,22 @@ a:hover { color: var(--gold-deep); }
 }
 
 .measure {
+  position: relative;
   background: transparent;
   color: var(--ink);
   border-bottom: 1px solid var(--line);
+  padding-top: 5px;
+}
+.measure::before {
+  content: "";
+  display: block;
+  height: 5px;
+  margin-bottom: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    var(--navy-deep) 0 8px,
+    var(--gold) 8px 16px
+  );
 }
 .measure-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .measure p {
@@ -402,6 +507,17 @@ a:hover { color: var(--gold-deep); }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-deep);
+}
+.fact-list dt::before {
+  content: "";
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  vertical-align: 0.08em;
+  background: radial-gradient(circle at 32% 32%, var(--steel-shine), var(--steel-deep));
+  box-shadow: inset 0 0 0 1px rgba(7, 30, 61, 0.2);
 }
 .fact-list dd { margin: 0; color: var(--ink-soft); }
 
@@ -459,8 +575,8 @@ a:hover { color: var(--gold-deep); }
 .card-grid .text-link { display: inline-block; margin-top: 0.85rem; font-weight: 700; }
 
 .chip {
-  display: block;
-  margin: 0 0 0.4rem;
+  display: inline-block;
+  margin: 0 0 0.55rem;
   padding: 0;
   font-size: 0.72rem;
   font-weight: 700;
@@ -470,7 +586,15 @@ a:hover { color: var(--gold-deep); }
   color: var(--gold-deep);
 }
 
-.tone-construction .chip { color: var(--gold-deep); }
+.tone-construction .chip {
+  padding: 0.22rem 0.55rem 0.26rem;
+  color: #fff8e8;
+  background: linear-gradient(180deg, #d4b06a 0%, #a87d28 48%, #7c520a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 1px;
+}
 .tone-logistics .chip { color: var(--logistics); }
 .tone-community .chip { color: var(--community); }
 
@@ -507,6 +631,28 @@ a:hover { color: var(--gold-deep); }
 }
 .bridge-steps span { color: var(--gold); }
 
+/* Stamped steel tags on journey and evidence numbers */
+.stage-row > li > span:first-child,
+.states > li > span:first-child,
+.admit-steps > li > span:first-child,
+.step-list > li > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.15rem;
+  margin-bottom: 0.55rem;
+  padding: 0.18rem 0.42rem;
+  font-size: 1.05rem;
+  color: var(--navy-deep);
+  background: linear-gradient(180deg, #eef1f4 0%, var(--steel) 55%, var(--steel-deep) 100%);
+  border: 1px solid var(--steel-deep);
+  border-radius: 1px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  letter-spacing: 0.06em;
+}
+
 .bridge-steps h3,
 .stage-row h3,
 .states h3 { font-size: 1.25rem; }
@@ -532,6 +678,10 @@ a:hover { color: var(--gold-deep); }
   margin: 0 0 0.7rem;
 }
 .bridge-steps li:last-child .word { color: #f3c431; }
+.bridge-steps .beam-word {
+  font-size: 0.72em;
+  vertical-align: 0.08em;
+}
 .word.sentence { font-size: 1.55rem; font-style: italic; }
 .bridge-steps .word.sentence { font-size: clamp(1.7rem, 2.4vw, 2.15rem); }
 .gloss { color: var(--ink-soft); margin: 0; font-size: 0.98rem; }
@@ -632,7 +782,7 @@ a:hover { color: var(--gold-deep); }
 
 .stage-row { grid-template-columns: repeat(3, 1fr); gap: 1.6rem 1.8rem; }
 .stage-row li { padding-top: 0.85rem; border-top: 1px solid var(--line); }
-.stage-row span { font-size: 1.35rem; margin-bottom: 0.35rem; }
+.stage-row > li > span:first-child { font-size: 1.05rem; }
 .stage-row li,
 .states li,
 .admit-steps li { position: relative; }
@@ -671,17 +821,27 @@ a:hover { color: var(--gold-deep); }
 .split p { color: var(--ink-soft); }
 
 .context aside {
+  position: relative;
   background: var(--navy);
   color: #f6f1e7;
   padding: 1.5rem;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--steel-shine), var(--steel), var(--steel-deep), var(--steel), var(--steel-shine)) 1;
 }
 .context-figure {
+  display: inline-block;
   font-family: var(--serif);
   font-size: clamp(3.4rem, 6vw, 5rem);
   line-height: 0.9;
-  margin: 0 0 0.6rem;
-  color: #f3c431;
+  margin: 0 0 0.75rem;
+  padding: 0.15em 0.28em 0.2em;
+  color: #f7f3ea;
   letter-spacing: -0.04em;
+  background: linear-gradient(180deg, var(--steel-shine) 0%, var(--steel) 45%, var(--steel-deep) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.28);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 .context aside p:last-child { margin: 0; color: rgba(246, 241, 231, 0.82); }
 
@@ -691,7 +851,13 @@ a:hover { color: var(--gold-deep); }
 .close-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
 
 .page-intro { padding: 3.2rem 0 0; }
-.page-intro .wrap { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.page-intro .wrap {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+  box-shadow:
+    -0.55rem 2rem 0 -1.85rem var(--steel),
+    0.55rem 2rem 0 -1.85rem var(--steel);
+}
 .page-intro h1 { font-size: clamp(2.7rem, 5.5vw, 4.6rem); max-width: 16ch; margin-bottom: 0.9rem; }
 .crumbs { margin: 0 0 1.1rem; }
 .crumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem 0.2rem; list-style: none; padding: 0; margin: 0; color: var(--ink-soft); font-size: 0.92rem; }

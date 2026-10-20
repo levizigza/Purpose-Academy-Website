@@ -152,7 +152,9 @@ export function LanguageBridge() {
                 alt="A claw hammer ready for supervised practice."
               />
             </figure>
-            <p className="word">Verified</p>
+            <p className="word">
+              <span className="beam-word">Verified</span>
+            </p>
             <p className="gloss">An instructor watches the skill on the tool and signs the record.</p>
           </li>
         </ol>

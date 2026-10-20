@@ -10,6 +10,7 @@ export function ProtectionPage() {
         kicker="Student services"
         title="Records, privacy, complaints, and safety."
         lede="How Purpose Academy keeps records, handles a complaint, and runs practical work."
+        mark="cone"
         crumbs={[{ to: '/', label: 'Home' }, { to: '/services', label: 'Student services' }, { label: 'Student protection' }]}
       />
       <section className="band">
@@ -42,7 +43,7 @@ export function ProtectionPage() {
             </p>
           </article>
           <article>
-            <h2>Safety</h2>
+            <h2 className="heading-cone">Safety</h2>
             <p>
               Practical work runs under a hazard assessment, protective equipment, and qualified supervision.
               Incidents are recorded and read back into the program.

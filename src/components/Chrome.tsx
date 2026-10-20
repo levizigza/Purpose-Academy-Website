@@ -173,19 +173,26 @@ export function PageIntro({
   title,
   lede,
   crumbs,
+  mark,
   children,
 }: {
   kicker: string
   title: string
   lede: string
   crumbs?: { to?: string; label: string }[]
+  mark?: 'cone' | 'beam'
   children?: ReactNode
 }) {
+  const kickerClass =
+    mark === 'cone' ? 'kicker kicker-cone' : mark === 'beam' ? 'kicker kicker-beam' : 'kicker'
+
   return (
     <header className="page-intro">
       <div className="wrap">
         {crumbs ? <Crumbs items={crumbs} /> : null}
-        <p className="kicker">{kicker}</p>
+        <p className={kickerClass}>
+          {mark === 'beam' ? <span className="beam-word beam-word-sm">{kicker}</span> : kicker}
+        </p>
         <h1>{title}</h1>
         <p className="lede">{lede}</p>
         {children}

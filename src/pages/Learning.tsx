@@ -82,7 +82,7 @@ export function LearningPage() {
       <section className="band band-stone">
         <div className="wrap split">
           <div>
-            <p className="kicker">Safety gates</p>
+            <p className="kicker kicker-cone">Safety gates</p>
             <h2>Practical work stays closed until the prerequisite is met.</h2>
             <p>
               Safety knowledge, tool orientation, PPE, and site orientation are gates, not suggestions. A gate can
