@@ -4,9 +4,10 @@ import { useEffect } from 'react'
 const FLOORS = [0.14, 0.3, 0.46, 0.62, 0.78] as const
 
 /**
- * Progress is the scroll that brings the crew band into the receive zone —
- * so the lowering story ends when the workers can take the beam, not at an
- * arbitrary % of document height.
+ * Two-phase scroll story:
+ * 0 → 0.55 — quiet gutter rails while the page scrolls (crew still below).
+ * 0.55 → 1 — handoff + build only while the crew strip is actually on screen,
+ * so the beam lower / house rise is visible instead of finishing off-page.
  */
 function updateLift() {
   const root = document.documentElement
@@ -17,10 +18,24 @@ function updateLift() {
     return
   }
 
-  const crewTop = crew.getBoundingClientRect().top + window.scrollY
-  const receiveLine = window.innerHeight * 0.7
-  const travel = Math.max(1, crewTop - receiveLine)
-  const progress = Math.min(1, Math.max(0, window.scrollY / travel))
+  const vh = window.innerHeight
+  const rect = crew.getBoundingClientRect()
+  const crewDocTop = rect.top + window.scrollY
+
+  // Approach ends when the strip is about to enter the viewport.
+  const approachEnd = Math.max(1, crewDocTop - vh * 0.92)
+  const approach = Math.min(1, Math.max(0, window.scrollY / approachEnd))
+
+  // Build window: crew top travels from just below the fold → upper third.
+  const buildStart = vh * 0.98
+  const buildEnd = vh * 0.28
+  const build = Math.min(
+    1,
+    Math.max(0, (buildStart - rect.top) / Math.max(1, buildStart - buildEnd)),
+  )
+
+  // Act thresholds in CSS: handoff ~0.55, build stages ~0.74–1.
+  const progress = Math.min(1, approach * 0.55 + build * 0.45)
 
   root.style.setProperty('--lift', progress.toFixed(4))
   root.classList.toggle('lift-complete', progress >= 0.97)
