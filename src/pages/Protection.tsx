@@ -37,7 +37,7 @@ export function ProtectionPage() {
             <h2>Complaints</h2>
             <p>
               Write to{' '}
-              <a href="mailto:hello@purposeacademy.ca">hello@purposeacademy.ca</a> about a decision, a classroom,
+              <a href="mailto:info@purposeacademy.ca">info@purposeacademy.ca</a> about a decision, a classroom,
               or the way your information was handled. Describe what happened. Admissions acknowledges the message
               and replies with the next step.
             </p>

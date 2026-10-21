@@ -6,7 +6,7 @@ export const BRAND = {
   name: 'Purpose Academy',
   place: 'Calgary, Alberta',
   city: 'Calgary',
-  email: 'hello@purposeacademy.ca',
+  email: 'info@purposeacademy.ca',
   platform: 'https://levizigza.github.io/Purpose-Academy-Application/',
   platformName: 'Learning platform',
   tagline: 'Learn today. Build tomorrow.',
