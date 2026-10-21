@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { LANGUAGES, publicUrl } from '../site'
-import { HammerUse } from './HammerUse'
 
 const CLIPS = {
   hammerEn: publicUrl('audio/en-a8cdcac2ee6db3bf.mp3'),
@@ -110,8 +109,11 @@ export function LanguageBridge() {
           <li>
             <span>02</span>
             <h3>Use it</h3>
-            <figure className="bridge-photo bridge-photo-scene">
-              <HammerUse />
+            <figure className="bridge-photo">
+              <img
+                src={publicUrl('media/hammer-strike.jpg')}
+                alt="A gloved hand holds a nail against wood as a hammer comes in to strike."
+              />
             </figure>
             <p className="word sentence">Use the hammer.</p>
             <p className="gloss">The English names the action on the tool.</p>
@@ -150,8 +152,8 @@ export function LanguageBridge() {
         <p className="bridge-note">
           Support languages: {LANGUAGES.join(', ')}. The clips are the same Microsoft Edge neural speech used on
           the learning platform. A learner who already knows hammer, drill, and stud is not kept on those words.
-          Header, flashing, and joist are where the extra pictures belong. The “Show it” clip is Mixkit stock
-          video (royalty-free).
+          Header, flashing, and joist are where the extra pictures belong. The “Use it” still is a Pexels
+          photograph. The “Show it” clip is Mixkit stock video (royalty-free).
         </p>
       </div>
     </section>
