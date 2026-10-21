@@ -1208,8 +1208,9 @@ a:hover { color: var(--gold-deep); }
   transition: opacity 0.28s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Live gutter load — active in Act A, dims as Act B handoff starts (~0.55) */
+/* Live gutter load — appears once scroll starts; dims at Act B handoff (~0.55) */
 .site-lift-cable {
+  --live: clamp(0, calc(var(--lift) * 18), 1);
   --handoff: clamp(0, calc((var(--lift) - 0.55) * 5), 1);
   position: absolute;
   left: 50%;
@@ -1219,10 +1220,11 @@ a:hover { color: var(--gold-deep); }
   transform: translateX(-50%);
   background: linear-gradient(180deg, #e8eef3, rgba(215, 222, 230, 0.4));
   z-index: 2;
-  opacity: calc(1 - var(--handoff) * 0.92);
+  opacity: calc(var(--live) * (1 - var(--handoff) * 0.92));
   transition: height 0.05s linear, opacity 0.35s ease;
 }
 .site-lift-hook {
+  --live: clamp(0, calc(var(--lift) * 18), 1);
   --handoff: clamp(0, calc((var(--lift) - 0.55) * 5), 1);
   position: absolute;
   left: 50%;
@@ -1235,10 +1237,11 @@ a:hover { color: var(--gold-deep); }
   border-radius: 50%;
   background: #041526;
   z-index: 3;
-  opacity: calc(1 - var(--handoff));
+  opacity: calc(var(--live) * (1 - var(--handoff)));
   transition: top 0.05s linear, opacity 0.35s ease;
 }
 .site-lift-beam {
+  --live: clamp(0, calc(var(--lift) * 18), 1);
   --handoff: clamp(0, calc((var(--lift) - 0.55) * 5), 1);
   position: absolute;
   left: 50%;
@@ -1253,7 +1256,7 @@ a:hover { color: var(--gold-deep); }
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     0 1px 0 rgba(0, 0, 0, 0.28);
   z-index: 3;
-  opacity: calc(1 - var(--handoff) * 0.95);
+  opacity: calc(var(--live) * (1 - var(--handoff) * 0.95));
   transition: top 0.05s linear, opacity 0.35s ease;
 }
 
@@ -1313,7 +1316,7 @@ html.lift-complete .site-lift-beam { opacity: 0; }
 }
 .crew-drop-beam {
   transform: translateY(calc(var(--drop) * 148px));
-  opacity: calc(0.15 + var(--drop) * 0.85 - var(--taken));
+  opacity: calc(var(--drop) * 0.95 - var(--taken));
   transition: transform 0.06s linear, opacity 0.2s ease;
 }
 
@@ -1376,8 +1379,9 @@ html.lift-complete .crew-spine {
   opacity: 1;
 }
 html.lift-complete .crew-drop-beam,
-html.lift-complete .crew-drop-cable { opacity: 0; }
-html.lift-complete .crew-carrier { opacity: 0.15; }
+html.lift-complete .crew-drop-cable,
+html.lift-complete .crew-carrier,
+html.lift-complete .crew-receiver { opacity: 0; }
 html.lift-complete .build-sill,
 html.lift-complete .build-walls,
 html.lift-complete .build-roof {
