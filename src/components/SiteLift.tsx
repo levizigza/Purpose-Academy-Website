@@ -26,30 +26,11 @@ function updateLift() {
   root.classList.toggle('lift-complete', progress >= 0.97)
 }
 
-function Crane({ side }: { side: 'left' | 'right' }) {
-  const mirror = side === 'right'
-  return (
-    <svg
-      className="site-lift-crane"
-      viewBox="0 0 72 120"
-      preserveAspectRatio="xMidYMin meet"
-      style={mirror ? { transform: 'scaleX(-1)' } : undefined}
-    >
-      <path d="M18 118 V22" fill="none" stroke="#c9d3de" strokeWidth="3" />
-      <path d="M18 28 H64" fill="none" stroke="#c9d3de" strokeWidth="3" />
-      <path d="M18 28 L6 44" fill="none" stroke="#c9d3de" strokeWidth="2.5" />
-      <circle cx="18" cy="28" r="3.5" fill="#e8a317" />
-    </svg>
-  )
-}
-
 function LiftSide({ side }: { side: 'left' | 'right' }) {
   return (
     <div className={`site-lift-side site-lift-side--${side}`}>
-      <Crane side={side} />
-
       <div className="site-lift-drop">
-        {/* Growing I-beam column — the page as structure */}
+        {/* Growing I-beam column — quiet rails, no header crane */}
         <div className="site-lift-spine" aria-hidden="true">
           <span className="site-lift-column" />
           {FLOORS.map((floor) => (
@@ -61,7 +42,7 @@ function LiftSide({ side }: { side: 'left' | 'right' }) {
           ))}
         </div>
 
-        {/* Live load on the hook */}
+        {/* Live load on the hook — dims when the crew scene takes over */}
         <span className="site-lift-cable" />
         <span className="site-lift-hook" />
         <span className="site-lift-beam" />

@@ -1136,7 +1136,10 @@ a:hover { color: var(--gold-deep); }
 
 :root { --lift: 0; }
 
-/* Fixed side cranes + growing steel spines that build with the page scroll */
+/*
+  Quiet gutter rails (Act A). No crane boom in the header —
+  the machine lives in the footer build strip.
+*/
 .site-lift {
   position: fixed;
   inset: 0;
@@ -1146,30 +1149,23 @@ a:hover { color: var(--gold-deep); }
 }
 .site-lift-side {
   position: absolute;
-  top: 4.6rem;
+  top: 5.1rem; /* clear sticky header / nav */
   bottom: 0;
-  width: 4.5rem;
+  width: 3.4rem;
 }
-.site-lift-side--left { left: 0.35rem; }
-.site-lift-side--right { right: 0.35rem; }
-.site-lift-crane {
-  display: block;
-  width: 4.5rem;
-  height: auto;
-  opacity: 0.92;
-}
+.site-lift-side--left { left: 0.4rem; }
+.site-lift-side--right { right: 0.4rem; }
 .site-lift-drop {
   position: absolute;
-  top: 1.7rem;
-  bottom: 0.35rem;
+  top: 0.35rem;
+  bottom: 0.85rem; /* stop above footer band — never beyond the page */
   left: 50%;
-  width: 2.8rem;
+  width: 2.6rem;
   height: auto;
   transform: translateX(-50%);
 }
-.site-lift-side--right .site-lift-drop { left: 42%; }
+.site-lift-side--right .site-lift-drop { left: 48%; }
 
-/* Growing I-beam column — structure that stays; floors lock in as beam passes */
 .site-lift-spine {
   position: absolute;
   inset: 0;
@@ -1179,17 +1175,17 @@ a:hover { color: var(--gold-deep); }
   position: absolute;
   left: 50%;
   top: 0;
-  width: 0.42rem;
-  height: calc(var(--lift) * 100%);
-  margin-left: -0.21rem;
+  width: 0.38rem;
+  height: calc(min(var(--lift), 0.78) * 100%);
+  margin-left: -0.19rem;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px),
     linear-gradient(180deg, #d7dee6 0%, #9eb0c4 55%, #7a8fa3 100%);
   box-shadow:
-    -0.55rem 0 0 -0.18rem #b8c4d0,
-    0.55rem 0 0 -0.18rem #b8c4d0,
+    -0.5rem 0 0 -0.16rem #b8c4d0,
+    0.5rem 0 0 -0.16rem #b8c4d0,
     inset 0 0 0 1px rgba(7, 30, 61, 0.12);
-  opacity: 0.88;
+  opacity: 0.82;
   transition: height 0.05s linear;
 }
 .site-lift-floor {
@@ -1197,10 +1193,10 @@ a:hover { color: var(--gold-deep); }
   position: absolute;
   left: 50%;
   top: calc(var(--floor) * 100%);
-  width: 2.55rem;
-  height: 0.42rem;
-  margin-left: -1.275rem;
-  margin-top: -0.21rem;
+  width: 2.35rem;
+  height: 0.38rem;
+  margin-left: -1.175rem;
+  margin-top: -0.19rem;
   border-radius: 1px;
   background:
     linear-gradient(180deg, #d4b896 0%, #c4a574 48%, #9a7d4e 100%);
@@ -1212,38 +1208,44 @@ a:hover { color: var(--gold-deep); }
   transition: opacity 0.28s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Live gutter load — active in Act A, dims as Act B handoff starts (~0.55) */
 .site-lift-cable {
+  --handoff: clamp(0, calc((var(--lift) - 0.55) * 5), 1);
   position: absolute;
   left: 50%;
   top: 0;
   width: 2px;
-  height: calc(var(--lift) * 100%);
+  height: calc(min(var(--lift), 0.78) * 100%);
   transform: translateX(-50%);
   background: linear-gradient(180deg, #e8eef3, rgba(215, 222, 230, 0.4));
   z-index: 2;
-  transition: height 0.05s linear, opacity 0.45s ease;
+  opacity: calc(1 - var(--handoff) * 0.92);
+  transition: height 0.05s linear, opacity 0.35s ease;
 }
 .site-lift-hook {
+  --handoff: clamp(0, calc((var(--lift) - 0.55) * 5), 1);
   position: absolute;
   left: 50%;
-  top: calc(var(--lift) * 100%);
-  width: 0.55rem;
-  height: 0.55rem;
-  margin-left: -0.275rem;
-  margin-top: -0.15rem;
+  top: calc(min(var(--lift), 0.78) * 100%);
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: -0.25rem;
+  margin-top: -0.12rem;
   border: 2px solid #d7dee6;
   border-radius: 50%;
   background: #041526;
   z-index: 3;
-  transition: top 0.05s linear, opacity 0.45s ease;
+  opacity: calc(1 - var(--handoff));
+  transition: top 0.05s linear, opacity 0.35s ease;
 }
 .site-lift-beam {
+  --handoff: clamp(0, calc((var(--lift) - 0.55) * 5), 1);
   position: absolute;
   left: 50%;
-  top: calc(var(--lift) * 100%);
-  width: 2.55rem;
-  height: 0.55rem;
-  margin-left: -1.275rem;
+  top: calc(min(var(--lift), 0.78) * 100%);
+  width: 2.35rem;
+  height: 0.5rem;
+  margin-left: -1.175rem;
   border-radius: 1px;
   background:
     linear-gradient(180deg, #d4b896 0%, #c4a574 48%, #9a7d4e 100%);
@@ -1251,95 +1253,141 @@ a:hover { color: var(--gold-deep); }
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     0 1px 0 rgba(0, 0, 0, 0.28);
   z-index: 3;
-  transition: top 0.05s linear, opacity 0.45s ease, transform 0.45s ease;
+  opacity: calc(1 - var(--handoff) * 0.95);
+  transition: top 0.05s linear, opacity 0.35s ease;
 }
 
-/*
-  Landing: column completes, live beam docks as the bottom plate and stays.
-  Crew receives the working load — structure never goes empty.
-*/
-html.lift-complete .site-lift-column {
-  height: 100%;
-}
-html.lift-complete .site-lift-cable {
-  height: calc(100% - 0.55rem);
-  opacity: 0.2;
-}
-html.lift-complete .site-lift-hook {
-  top: calc(100% - 0.55rem);
-  opacity: 0;
-}
-html.lift-complete .site-lift-beam {
-  top: 100%;
-  margin-top: -0.55rem;
-  opacity: 1;
-  transform: none;
-}
+html.lift-complete .site-lift-column { height: 78%; }
+html.lift-complete .site-lift-cable,
+html.lift-complete .site-lift-hook,
+html.lift-complete .site-lift-beam { opacity: 0; }
 
+/* ── Build strip story (Acts B + C) ── */
 .site-footer { background: var(--navy-deep); color: rgba(246, 241, 231, 0.78); padding: 0 0 1.2rem; }
-.crew-band { background: #041526; overflow: hidden; line-height: 0; border-bottom: 1px solid rgba(232, 163, 23, 0.28); }
+.crew-band {
+  background: #041526;
+  overflow: hidden;
+  line-height: 0;
+  border-bottom: 1px solid rgba(232, 163, 23, 0.28);
+  min-height: 11.5rem;
+}
 .crew-scene { display: block; width: 100%; height: auto; }
-.crew-sun { fill: #e8a317; }
+
+/* Timelapse sky: dawn base → dusk overlay via --lift */
+.crew-sky--dusk {
+  opacity: clamp(0.12, calc(var(--lift) * 0.92), 0.96);
+}
+.crew-sun {
+  fill: #f3c431;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform:
+    translate(
+      calc(var(--lift) * 980px),
+      calc(var(--lift) * 72px - 6px)
+    );
+  opacity: calc(1 - var(--lift) * 0.25);
+  transition: transform 0.08s linear, opacity 0.2s linear;
+}
+.crew-ground {
+  opacity: 1;
+}
+
 .crew-spine {
   transform-box: fill-box;
   transform-origin: top center;
-  transform: scaleY(calc(0.2 + var(--lift) * 0.8));
-  opacity: calc(0.25 + var(--lift) * 0.75);
+  transform: scaleY(calc(0.25 + min(var(--lift), 0.78) * 0.75));
+  opacity: calc(0.3 + var(--lift) * 0.7);
 }
-.crew-receive { opacity: calc(0.12 + var(--lift) * 0.55); transition: opacity 0.25s ease; }
-.crew-landed-beam,
-.crew-floor-plate {
-  opacity: calc(var(--lift) * 0.35);
-  transition: opacity 0.25s ease;
-}
-.crew-carried { opacity: calc(0.2 + var(--lift) * 0.55); transition: opacity 0.25s ease; }
-.crew-stack-top { opacity: calc(0.25 + var(--lift) * 0.5); transition: opacity 0.25s ease; }
-.crew-walk {
-  transform: translateX(calc(430px + var(--lift) * 90px));
-  transition: transform 0.05s linear;
-}
-.crew-arm {
-  transform-box: fill-box;
-  transform-origin: 0% 40%;
-  transform: rotate(calc(-34deg + var(--lift) * 44deg));
-}
-.crew-pass { transform: translateX(calc(var(--lift) * 10px)); }
-.crew-take,
-.crew-frame-work { opacity: calc(0.45 + var(--lift) * 0.55); }
 
-/* Soft handoff: as the live beam docks, crew receive takes the load */
+/* Act B — crane drop: beam lowers from boom to ground (~0.55 → 0.78) */
+.crew-drop {
+  --drop: clamp(0, calc((var(--lift) - 0.52) / 0.26), 1);
+  --taken: clamp(0, calc((var(--lift) - 0.76) * 12), 1);
+}
+.crew-drop-cable {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  transform: scaleY(calc(0.06 + var(--drop) * 0.94));
+  opacity: calc(0.35 + var(--drop) * 0.65 - var(--taken));
+}
+.crew-drop-beam {
+  transform: translateY(calc(var(--drop) * 148px));
+  opacity: calc(0.15 + var(--drop) * 0.85 - var(--taken));
+  transition: transform 0.06s linear, opacity 0.2s ease;
+}
+
+.crew-receiver {
+  opacity: calc(0.35 + clamp(0, calc((var(--lift) - 0.45) * 4), 1) * 0.65);
+}
+.crew-receiver-arm {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  transform: rotate(calc(-28deg + clamp(0, calc((var(--lift) - 0.55) / 0.22), 1) * 40deg));
+}
+
+/* Carrier appears as the drop finishes; walks beam to the house */
+.crew-carrier {
+  --carry: clamp(0, calc((var(--lift) - 0.72) / 0.22), 1);
+  transform: translateX(calc(340px + var(--carry) * 420px));
+  opacity: calc(var(--carry) * 1.15);
+  transition: transform 0.06s linear, opacity 0.2s ease;
+}
+.crew-carried {
+  opacity: 1;
+}
+
+.crew-stack { opacity: calc(0.25 + var(--lift) * 0.55); }
+.crew-stack-top { opacity: calc(0.2 + var(--lift) * 0.6); }
+
+/* Act C — house stages tied to lift / time of day */
+.build-sill {
+  opacity: clamp(0, calc((var(--lift) - 0.74) * 10), 1);
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  transform: scaleY(clamp(0.2, calc((var(--lift) - 0.74) * 8), 1));
+}
+.build-walls {
+  opacity: clamp(0, calc((var(--lift) - 0.82) * 10), 1);
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  transform: scaleY(clamp(0.15, calc((var(--lift) - 0.82) * 7), 1));
+}
+.build-roof {
+  opacity: clamp(0, calc((var(--lift) - 0.9) * 12), 1);
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  transform: scaleY(clamp(0.2, calc((var(--lift) - 0.9) * 10), 1));
+}
+
+.crew-framer {
+  opacity: clamp(0, calc((var(--lift) - 0.84) * 8), 1);
+}
+.crew-framer-pass {
+  transform: translateX(calc(clamp(0, calc((var(--lift) - 0.86) * 10), 1) * 8px));
+}
+.crew-roofer {
+  opacity: clamp(0, calc((var(--lift) - 0.92) * 12), 1);
+}
+
+/* Complete: gentle idle only — no frantic loops fighting the story */
 html.lift-complete .crew-spine {
   transform: scaleY(1);
   opacity: 1;
 }
-html.lift-complete .crew-receive { opacity: 1; }
-html.lift-complete .crew-landed-beam,
-html.lift-complete .crew-floor-plate {
+html.lift-complete .crew-drop-beam,
+html.lift-complete .crew-drop-cable { opacity: 0; }
+html.lift-complete .crew-carrier { opacity: 0.15; }
+html.lift-complete .build-sill,
+html.lift-complete .build-walls,
+html.lift-complete .build-roof {
   opacity: 1;
-  animation: crew-beam-settle 0.7s ease-out both;
+  transform: scaleY(1);
 }
-html.lift-complete .crew-carried { opacity: 1; }
-html.lift-complete .crew-stack-top { opacity: 1; }
-html.lift-complete .crew-arm {
-  animation: crew-swing 1.05s ease-in-out infinite;
-}
-html.lift-complete .crew-pass {
-  animation: crew-pass 2.6s ease-in-out infinite;
-}
-html.lift-complete .crew-walk {
-  animation: crew-walk 8s ease-in-out infinite alternate;
-}
-@keyframes crew-beam-settle {
-  from { transform: translateY(-10px); opacity: 0.4; }
-  to { transform: translateY(0); opacity: 1; }
-}
-@keyframes crew-walk {
-  from { transform: translateX(500px); }
-  to { transform: translateX(610px); }
-}
-@keyframes crew-swing {
-  0%, 100% { transform: rotate(-34deg); }
-  46% { transform: rotate(10deg); }
+html.lift-complete .crew-framer,
+html.lift-complete .crew-roofer { opacity: 1; }
+html.lift-complete .crew-framer-pass {
+  animation: crew-pass 3.2s ease-in-out infinite;
 }
 @keyframes crew-pass {
   0%, 100% { transform: translateX(0); }
@@ -1447,10 +1495,26 @@ html.lift-complete .crew-walk {
   html { scroll-behavior: auto; }
   .button { transition: none; }
   .site-lift { display: none; }
-  .crew-walk, .crew-arm, .crew-pass { animation: none !important; transform: none; }
-  .crew-walk { transform: translateX(520px); }
-  .crew-receive, .crew-landed-beam, .crew-floor-plate, .crew-carried, .crew-stack-top, .crew-spine { opacity: 1; }
-  .crew-spine { transform: scaleY(1); }
+  .crew-sun,
+  .crew-drop-cable,
+  .crew-drop-beam,
+  .crew-carrier,
+  .build-sill,
+  .build-walls,
+  .build-roof,
+  .crew-framer-pass { transition: none !important; animation: none !important; }
+  .crew-sky--dusk { opacity: 0.95; }
+  .crew-sun { transform: translate(980px, 62px); opacity: 0.7; }
+  .crew-drop-beam,
+  .crew-drop-cable,
+  .crew-carrier { opacity: 0; }
+  .crew-spine { transform: scaleY(1); opacity: 1; }
+  .build-sill,
+  .build-walls,
+  .build-roof,
+  .crew-framer,
+  .crew-roofer,
+  .crew-stack-top { opacity: 1; transform: none; }
   .hear-button.is-playing .hear-icon { animation: none; }
   .bridge-video { animation: none; }
 }
