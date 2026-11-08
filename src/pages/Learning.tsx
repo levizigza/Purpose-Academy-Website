@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PageIntro, usePage } from '../components/Chrome'
-import { STEPS, STAGES, publicUrl } from '../site'
+import { BRAND, STEPS, STAGES, publicUrl } from '../site'
 
 export function LearningPage() {
   const [stage, setStage] = useState<string>('all')
@@ -95,13 +95,14 @@ export function LearningPage() {
           </div>
           <div>
             <p className="kicker">The learning platform</p>
-            <h2>This website explains the school. Practice will happen on the learning platform.</h2>
+            <h2>Three streams. Each week has an aim, a model, practice, and evidence.</h2>
             <p>
-              Students, instructors, and administrators each sign in separately. A learner sees the next task.
-              An instructor sees who needs help, which assessment is waiting, and which safety requirement is still closed.
+              Construction, Logistics, and Community Support each keep their own curriculum. An instructor opens one
+              stream, states what the learner will be able to do, models the task, practises it with the group, and
+              keeps the work that shows it landed. The week’s plan, textbook, checklist, and examination are on that page.
             </p>
             <p>
-              <a className="text-link" href="https://levizigza.github.io/Purpose-Academy-Application/" target="_blank" rel="noreferrer">
+              <a className="text-link" href={BRAND.platform} target="_blank" rel="noreferrer">
                 Open the learning platform
               </a>
             </p>
