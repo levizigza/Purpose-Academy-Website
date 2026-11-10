@@ -124,11 +124,21 @@ export function Shell({ children }: { children: ReactNode }) {
             <p>
               <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
             </p>
-            <p>
-              <a href={BRAND.platform} target="_blank" rel="noreferrer">
-                Open the learning platform
+            <figure className="footer-qr">
+              <a href={BRAND.platform} target="_blank" rel="noreferrer" aria-label="QR code for the Purpose Academy application">
+                <img
+                  src={publicUrl('brand/application-qr.svg')}
+                  alt=""
+                  width="128"
+                  height="128"
+                />
               </a>
-            </p>
+              <figcaption>
+                <a className="footer-qr-link" href={BRAND.platform} target="_blank" rel="noreferrer">
+                  Open the application
+                </a>
+              </figcaption>
+            </figure>
           </div>
         </div>
         <div className="wrap footer-note">
